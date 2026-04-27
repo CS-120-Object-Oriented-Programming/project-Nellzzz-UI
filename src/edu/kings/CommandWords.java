@@ -14,13 +14,16 @@ package edu.kings;
 
 public class CommandWords {
 	/** A constant array that holds all valid command words. */
-	private static String[] validCommands;
+	private static CommandEnum[] validCommands;
+
+	static{
+		validCommands = CommandEnum.values();
 
 	/**
 	 * Static block to initialize the fields of CommandWords.
 	 */
 	static {
-		String[] tempCommands = {"go", "quit", "help" };
+		String[] tempCommands = {"go", "quit", "help", "look"};
 		validCommands = tempCommands;
 	}
 
