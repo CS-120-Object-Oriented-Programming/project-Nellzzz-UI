@@ -26,9 +26,9 @@ import java.util.ArrayList;
 
 public class Command {
 	/** The command word for this command. */
-	private String commandWord;
+	private final CommandEnum commandWord;
 	/** The rest of the line with all the spaces removed. */
-	private ArrayList<String> restOfLine;
+	private final ArrayList<String> restOfLine;
 
 	/**
 	 * Create a command object. First is supplied. The second word is assumed
@@ -38,25 +38,11 @@ public class Command {
 	 *            The first word of the command. Null if the command was not
 	 *            recognized.
 	 */
-	public Command(String firstWord) {
+	public Command(CommandEnum firstWord) {
 		commandWord = firstWord;
-		restOfLine = new ArrayList<String>();
+		restOfLine = new ArrayList<>();
 	}
 
-	/**
-	 * Create a command object. First and second word must be supplied, but
-	 * either one (or both) can be null.
-	 *
-	 * @param firstWord
-	 *            The first word of the command. Null if the command was not
-	 *            recognized.
-	 * @param rest
-	 *            The rest of the command.
-	 */
-	public Command(String firstWord, ArrayList<String> rest) {
-		commandWord = firstWord;
-		restOfLine = rest;
-	}
 
 	/**
 	 * Return the command word (the first word) of this command. If the command
@@ -64,18 +50,23 @@ public class Command {
 	 *
 	 * @return The command word.
 	 */
-	public String getCommandWord() {
+	public CommandEnum getCommandWord() {
 		return commandWord;
 	}
 
 	/**
-	 * Returns if this command was not understood.
+	 * Returns the second word of this command.
 	 *
-	 * @return true if this command was not understood.
+	 * @return the second word of this command.
 	 */
-	public boolean isUnknown() {
-		return (commandWord == null);
+	public String getSecondWord() {
+		if (restOfLine.isEmpty()) {
+			return null;
+		}
+		return restOfLine.get(0);
 	}
+	
+	
 
 	/**
 	 * Returns if this command has a second word.
@@ -83,17 +74,14 @@ public class Command {
 	 * @return true if the command has a second word.
 	 */
 	public boolean hasSecondWord() {
-		return restOfLine != null;
+		return !restOfLine.isEmpty();
 	}
 
-	/**
-	 * Returns if this command has more words.
-	 *
-	 * @param index The index of the word needed.
-	 * @return true if the command has a word at given index.
-	 */
-	public boolean hasWord(int index) {
-		return index >= 0 && index < restOfLine.size();
+	public String getRestOfLine() {
+		if (restOfLine.isEmpty()) {
+			return null;
+		}
+		return restOfLine.get(0);
 	}
 
 	/**
@@ -106,14 +94,9 @@ public class Command {
 	 *         word corresponding to that requested index.
 	 *
 	 */
-	public String getWord(int index) {
-		String result = null;
-		if (index >= 0 && index < restOfLine.size()) {
-			result = restOfLine.get(index);
-		}
-		return result;
+	public boolean isUnknown() {
+		return commandWord == null;
 	}
-
 
 	/**
 	 * Returns the second word of this command, if it exists.
@@ -121,24 +104,7 @@ public class Command {
 	 * @return The second word of this command. Returns null if there was no
 	 *         second word.
 	 */
-	public String getRestOfLine() {
-		StringBuffer buffer = null;
-		if (restOfLine.size() != 0) {
-			for(String word : restOfLine) {
-				if (buffer == null) {
-					buffer = new StringBuffer();
-					buffer.append(word);
-				}
-				else {
-					buffer.append(" ");
-					buffer.append(word);
-				}
-			}
-		}
-		String result = "";
-		if (buffer != null) {
-			result += buffer.toString();
-		}
-		return result;
+	public void addRestOfLine(String word) {
+		restOfLine.add(word);
 	}
-}
+	}

@@ -6,4 +6,39 @@ Type 'help' if you need help.
 Outside:
 You are outside in the center of the King's College campus.
 Exits: north east south west 
-> 
+> help
+You are lost. You are alone. You wander
+around at the university.
+
+Your command words are:
+   go quit help look status back
+> look
+Outside:
+You are outside in the center of the King's College campus.
+Exits: north east south west 
+> north
+I dont know what you mean...
+> go north 
+Essef:
+You are at the other main dormitory on campus.
+Exits: south 
+> back
+Outside:
+You are outside in the center of the King's College campus.
+Exits: north east south west 
+> status
+Score:0
+Turns:0
+
+Outside:
+You are outside in the center of the King's College campus.
+Exits: north east south west 
+> back
+Essef:
+You are at the other main dormitory on campus.
+Exits: south 
+> south
+I dont know what you mean...
+> quit 
+I hope you weren't too bored here on the Campus of Kings!
+Thank you for playing.  Good bye.

@@ -49,7 +49,34 @@ package edu.kings;
 	}
 
 	public void look(){
-		
+		printLocationInformation();
+	}
+	private void printLocationInformation() {
+		Writer.println(player.getCurrentRoom().getName() + ":");
+		Writer.println("You are " + player.getCurrentRoom().getDescription());
+		Writer.print("Exits: ");
+		if (player.getCurrentRoom().northExit != null) {
+			Writer.print("north ");
+		}
+		if (player.getCurrentRoom().eastExit != null) {
+			Writer.print("east ");
+		}
+		if (player.getCurrentRoom().southExit != null) {
+			Writer.print("south ");
+		}
+		if (player.getCurrentRoom().westExit != null) {
+			Writer.print("west ");
+		}
+		Writer.println();
+	}
+	private void back(){
+		Room previousRoom = player.getPreviousRoom();
+		if (previousRoom == null) {
+			Writer.println("You haven't moved yet!");
+		} else {
+			player.setCurrentRoom(previousRoom);
+			printLocationInformation();
+		}
 	}
 
 
@@ -65,26 +92,25 @@ package edu.kings;
 	 */
 	private boolean processCommand(Command command) {
 		boolean wantToQuit = false;
-
 		if (command.isUnknown()) {
-			Writer.println("I don't know what you mean...");
-		} else {
+			Writer.println("I dont know what you mean...");
+			return false;
+		}
 
-			String commandWord = command.getCommandWord();
-			if (commandWord.equals("help")) {
-				printHelp();
-			} else if (commandWord.equals("go")) {
-				goRoom(command);
-			} else if (commandWord.equals("quit")) {
-				wantToQuit = quit(command);
-			} else {
-				Writer.println(commandWord + " is not implemented yet!");
-			}
+		switch(command.getCommandWord()) {
+			case GO -> goRoom(command);
+			case QUIT -> wantToQuit = quit(command);
+			case HELP -> printHelp();
+			case LOOK -> look();
+			case STATUS -> status();
+			case BACK -> back();
+			default -> Writer.println("I don't know what you mean...");  
+			
 		}
 		return wantToQuit;
 	}
 
-	///////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////
 	// Helper methods for implementing all of the commands.
 	// It helps if you organize these in alphabetical order.
 
@@ -160,7 +186,7 @@ package edu.kings;
 		Writer.println("around at the university.");
 		Writer.println();
 		Writer.println("Your command words are:");
-		Writer.println("   go quit help");
+		Writer.println("   go quit help look status back");
 	}
 
 	/**
@@ -189,7 +215,15 @@ package edu.kings;
 		}
 		Writer.println("");
 	}
-
+	/**
+	 * Print out the player's current status, including their current location and inventory.
+	 */
+	private void status() {
+		Writer.println("Score:" + player.getScore());
+		Writer.println("Turns:" + player.getTurns());
+		Writer.println();
+		printLocationInformation();
+	}
 	/**
 	 * "Quit" was entered. Check the rest of the command to see whether we
 	 * really quit the game.
@@ -207,3 +241,4 @@ package edu.kings;
 		return wantToQuit;
 	}
 }
+

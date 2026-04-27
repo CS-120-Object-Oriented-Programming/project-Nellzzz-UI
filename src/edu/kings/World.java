@@ -16,13 +16,13 @@ import java.util.HashMap;
  */
 public class World {
 	/** The rooms in the world. */
-	private HashMap<String, Room> rooms;
+	private final HashMap<String, Room> rooms;
 
 	/**
 	 * Constructor for the world.
 	 */
 	public World() {
-		rooms = new HashMap<String, Room>();
+		rooms = new HashMap<>();
 		createRooms();
 	}
 
