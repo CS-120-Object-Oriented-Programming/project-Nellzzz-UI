@@ -1,4 +1,6 @@
 package edu.kings;
+import java.util.HashMap;
+import java.util.Set;
 /**
  * Class Room - a room in an adventure game.
  *
@@ -14,22 +16,20 @@ package edu.kings;
  *
  * Used with permission from Dr. Maria Jump at Northeastern University
  */
+
+
 public class Room {
+	
 	/** Counter for the total number of rooms created in the world. */
 	private static int counter;
 	/** The name of this room.  Room names should be unique. */
-	private String name;
+	private final String name;
 	/** The description of this room. */
-	private String description;
+	private final String description;
 
-	/** This room's north exit, null if none exits. */
-	public Door northExit;
-	/** This room's south exit, null if none exits. */
-	public Door southExit;
-	/** This room's east exit, null if none exits. */
-	public Door eastExit;
-	/** This room's west exit, null if none exits. */
-	public Door westExit;
+	private HashMap<String, Door> exits;
+	private HashMap<String, Item> items;
+
 
 	/**
 	 * Static initializer.
@@ -48,6 +48,8 @@ public class Room {
 	public Room(String name, String description) {
 		this.name = name;
 		this.description = description;
+		exits = new HashMap<String, Door>();
+		items = new HashMap<String, Item>();
 		counter++;
 	}
 
@@ -75,5 +77,62 @@ public class Room {
 	 */
 	public static int getCounter() {
 		return counter;
+	}
+	public void setExit(String direction, Door neighbor) {
+		exits.put(direction, neighbor);
+	}
+	public Door getExit(String direction) {
+		return exits.get(direction);
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder result = new StringBuilder();
+		result.append(name).append(":\n");
+		result.append("You are ").append(description).append("\n");
+		
+		if (!items.isEmpty()) {
+			result.append("Items: ");
+			for (String itemName : items.keySet()) {
+				result.append(itemName).append(" ");
+			}
+			result.append("\n");
+		}
+		
+		result.append("Exits: ");
+		for (String direction : exits.keySet()) {
+			result.append(direction).append(" ");
+		}
+		result.append("\n");
+		return result.toString();
+	}
+
+	/**
+	 * Adds an item to the room.
+	 *
+	 * @param item The item to add.
+	 */
+	public void addItem(Item item) {
+		items.put(item.getName().toLowerCase(), item);
+	}
+
+	/**
+	 * Gets an item from the room by name.
+	 *
+	 * @param name The name of the item.
+	 * @return The item or null if not found.
+	 */
+	public Item getItem(String name) {
+		return items.get(name.toLowerCase());
+	}
+
+	/**
+	 * Removes an item from the room by name.
+	 *
+	 * @param name The name of the item to remove.
+	 * @return The item that was removed or null if not found.
+	 */
+	public Item removeItem(String name) {
+		return items.remove(name.toLowerCase());
 	}
 }

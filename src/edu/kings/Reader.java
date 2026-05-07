@@ -73,5 +73,13 @@ public class Reader {
         }
         return command;
      }
-    }
 
+    /**
+     * Get a simple string response from the user.
+     * @return The user's response converted to lowercase.
+     */
+    public static String getResponse() {
+        Writer.print(">> ");
+        return reader.nextLine().toLowerCase();
+    }
+}

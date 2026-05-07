@@ -6,7 +6,21 @@ public enum CommandEnum{
     HELP("help"),
     LOOK("look"),
     STATUS("status"),
-    BACK("back");
+    BACK("back"),
+    DROP("drop"),
+    EXAMINE("examine"),
+    INVENTORY("inventory"),
+    TAKE("take"),
+    SCORE("score"),
+    TURNS("turns"),
+    LOCK("lock"),
+    UNLOCK("unlock"),
+    PACK("pack"),
+    UNPACK("unpack"),
+    DRINK("drink"),
+    EAT("eat"),
+    RIDDLE("riddle"),
+    STATUS_REPORT("status");
 
     private final String text;
 

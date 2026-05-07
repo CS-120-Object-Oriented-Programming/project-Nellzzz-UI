@@ -27,11 +27,9 @@ public class World {
 	}
 
 	/**
-	 * This method takes care of creating all of the aspects of the world for
-	 * the "Campus of Kings" application.
+	 * Gets a room by name.
 	 *
-	 * @param name
-	 *            The provided name of the room.
+	 * @param name The provided name of the room.
 	 * @return The room associated with the provided name
 	 */
 	public Room getRoom(String name) {
@@ -39,14 +37,12 @@ public class World {
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////
-	// Start of private helper methods
+	// Private helper methods
 
 	/**
-	 * Helper method for recreating a Room. Ensure that the room is created and
-	 * installed in to the collection of Rooms
+	 * Helper method for adding a Room to the world.
 	 *
-	 * @param theRoom
-	 *            The room to add to the world.
+	 * @param theRoom The room to add to the world.
 	 */
 	private void addRoom(Room theRoom) {
 		rooms.put(theRoom.getName().toLowerCase(), theRoom);
@@ -55,53 +51,12 @@ public class World {
 	/**
 	 * Helper method for creating doors between rooms.
 	 *
-	 * @param from
-	 *            The room where the door originates.
-	 * @param north
-	 *            The room to the north of the originating room.
+	 * @param from The room where the door originates.
+	 * @param direction The direction of the door in the from room.
+	 * @param to The room where the door goes.
 	 */
-	private void createNorthDoor(Room from, Room north) {
-		Door northDoor = new Door(north);
-		from.northExit = northDoor;
-	}
-
-	/**
-	 * Helper method for creating doors between rooms.
-	 *
-	 * @param from
-	 *            The room where the door originates.
-	 * @param east
-	 *            The room to the east of the originating room.
-	 */
-	private void createEastDoor(Room from, Room east) {
-		Door eastDoor = new Door(east);
-		from.eastExit = eastDoor;
-	}
-
-	/**
-	 * Helper method for creating doors between rooms.
-	 *
-	 * @param from
-	 *            The room where the door originates.
-	 * @param south
-	 *            The room to the south of the originating room.
-	 */
-	private void createSouthDoor(Room from, Room south) {
-		Door southDoor = new Door(south);
-		from.southExit = southDoor;
-	}
-
-	/**
-	 * Helper method for creating doors between rooms.
-	 *
-	 * @param from
-	 *            The room where the door originates.
-	 * @param west
-	 *            The room to the west of the originating room.
-	 */
-	private void createWestDoor(Room from, Room west) {
-		Door westDoor = new Door(west);
-		from.westExit = westDoor;
+	private void createDoor(Room from, String direction, Room to) {
+		from.setExit(direction, new Door(to));
 	}
 
 	/**
@@ -109,51 +64,227 @@ public class World {
 	 * the doors connecting them.
 	 */
 	private void createRooms() {
-		// Creating all the rooms.
-		Room outside = new Room("Outside", "outside in the center of the King's College campus.");
-		Room holyCross = new Room("Holy Cross", "at one of two main dormitories on campus.");
-		Room essef = new Room("Essef", "at the other main dormitory on campus.");
-		Room campusCenter = new Room("Campus Center", "in the center of student activities on campus.");
-		Room admin = new Room("Admin", "in the oldest building on campus and home to the computer science department.");
-		Room slivaOffice = new Room("Sliva's Office", "in Dr Sliva's office.");
-		Room janoskiOffice = new Room("Janoski's Office", "in Dr Janoski's office.");
-		Room lab = new Room("Computer Lab", "in the Computer Science and Math computing lab.");
-		Room classroom = new Room("Classroom", "in the classroom where the computer science classes are taught.");
+		// FLOOR 1 - Main Wonderland Rooms
+		Room mirrorChamber = new Room("Mirror Chamber", "You stand before an ornate mirror. Your reflection stares back, but something feels... wrong.");
+		addRoom(mirrorChamber);
 
-		// Adding all the rooms to the world.
-		this.addRoom(outside);
-		this.addRoom(holyCross);
-		this.addRoom(essef);
-		this.addRoom(campusCenter);
-		this.addRoom(admin);
-		this.addRoom(slivaOffice);
-		this.addRoom(janoskiOffice);
-		this.addRoom(lab);
-		this.addRoom(classroom);
+		Room purpleRoom = new Room("Purple Room", "You are in a purple kitchen that smells of burnt pepper. A treasure chest sits on the table, and a Cheshire Cat grins from atop it!");
+		addRoom(purpleRoom);
 
-		// Creating all the doors between the rooms.
-		this.createSouthDoor(essef, outside);
-		this.createNorthDoor(outside, essef);
+		Room blueRoom = new Room("Blue Room", "You are in a room filled with ticking clocks. Clockwork animals move around you.");
+		addRoom(blueRoom);
 
-		this.createEastDoor(campusCenter, outside);
-		this.createWestDoor(outside, campusCenter);
+		Room yellowRoom = new Room("Yellow Room", "You are in a room with a floor of quicksand. It pulls at your feet with each step.");
+		addRoom(yellowRoom);
 
-		this.createEastDoor(outside, holyCross);
-		this.createWestDoor(holyCross, outside);
+		Room orangeRoom = new Room("Orange Room", "You are in a toy room overcrowded with dolls that whisper when you are not looking.");
+		addRoom(orangeRoom);
 
-		this.createSouthDoor(outside, admin);
-		this.createNorthDoor(admin, outside);
+		Room redRoom = new Room("Red Room", "You are in the Card Throne, where playing card guards stand at attention.");
+		addRoom(redRoom);
 
-		this.createEastDoor(admin, lab);
-		this.createWestDoor(lab, admin);
+		Room greenRoom = new Room("Green Room", "You are in an impossible garden where flowers speak riddles.");
+		addRoom(greenRoom);
 
-		this.createSouthDoor(admin, janoskiOffice);
-		this.createNorthDoor(janoskiOffice, admin);
+		Room blackRoom = new Room("Black Room", "You are in a shadowy hall where darkness seems to have weight.");
+		addRoom(blackRoom);
 
-		this.createWestDoor(admin, slivaOffice);
-		this.createEastDoor(slivaOffice, admin);
+		Room elevatorRoom = new Room("Elevator Room", "You are in a grand elevator chamber with mirrors on every wall.");
+		addRoom(elevatorRoom);
 
-		this.createSouthDoor(lab, classroom);
-		this.createNorthDoor(classroom, lab);
+		// FLOOR 2 - Mirrored Rooms
+		Room floor2Mirror = new Room("Floor 2 Mirror", "You stand before another mirror, but this one shows a different reflection.");
+		addRoom(floor2Mirror);
+
+		Room floor2Purple = new Room("Floor 2 Purple", "You are in a mirrored kitchen. Everything is reversed.");
+		addRoom(floor2Purple);
+
+		Room floor2Blue = new Room("Floor 2 Blue", "You are in a mirrored clock room. The ticking sounds backwards.");
+		addRoom(floor2Blue);
+
+		Room floor2Yellow = new Room("Floor 2 Yellow", "You are in a mirrored quicksand room. The sand flows upward.");
+		addRoom(floor2Yellow);
+
+		Room floor2Orange = new Room("Floor 2 Orange", "You are in a mirrored toy room with silent dolls.");
+		addRoom(floor2Orange);
+
+		Room floor2Red = new Room("Floor 2 Red", "You are in a mirrored Card Throne.");
+		addRoom(floor2Red);
+
+		Room floor2Green = new Room("Floor 2 Green", "You are in a mirrored garden with opposite flowers.");
+		addRoom(floor2Green);
+
+		Room floor2Black = new Room("Floor 2 Black", "You are in a mirrored shadow hall where light has weight.");
+		addRoom(floor2Black);
+
+		Room throneRoom = new Room("Throne Room", "You stand before the Queen of Hearts. This is the end.");
+		addRoom(throneRoom);
+
+		// CRAWLSPACES - Small rooms accessible when small
+		Room hiddenCellar = new Room("Hidden Cellar", "You are in a small hidden cellar beneath the kitchen. It smells of earth and secrets.");
+		addRoom(hiddenCellar);
+
+		Room hiddenAttic = new Room("Hidden Attic", "You are in a cramped attic above the clock room. Dust particles dance in strange patterns.");
+		addRoom(hiddenAttic);
+
+		Room hiddenChamber = new Room("Hidden Chamber", "You are in a mysterious chamber hidden behind the toys. Strange machinery hums.");
+		addRoom(hiddenChamber);
+
+		// Connect FLOOR 1 rooms
+		createDoor(mirrorChamber, "north", purpleRoom);
+		createDoor(purpleRoom, "south", mirrorChamber);
+		
+		createDoor(purpleRoom, "east", blueRoom);
+		createDoor(blueRoom, "west", purpleRoom);
+		
+		createDoor(blueRoom, "north", yellowRoom);
+		createDoor(yellowRoom, "south", blueRoom);
+		
+		createDoor(yellowRoom, "east", orangeRoom);
+		createDoor(orangeRoom, "west", yellowRoom);
+		
+		createDoor(orangeRoom, "north", redRoom);
+		createDoor(redRoom, "south", orangeRoom);
+		
+		createDoor(redRoom, "east", greenRoom);
+		createDoor(greenRoom, "west", redRoom);
+		
+		createDoor(greenRoom, "north", blackRoom);
+		createDoor(blackRoom, "south", greenRoom);
+		
+		createDoor(blackRoom, "east", elevatorRoom);
+		createDoor(elevatorRoom, "west", blackRoom);
+
+		// Connect FLOOR 2 rooms (mirrored)
+		createDoor(elevatorRoom, "up", floor2Mirror);
+		createDoor(floor2Mirror, "down", elevatorRoom);
+		
+		createDoor(floor2Mirror, "north", floor2Purple);
+		createDoor(floor2Purple, "south", floor2Mirror);
+
+		createDoor(floor2Purple, "east", floor2Blue);
+		createDoor(floor2Blue, "west", floor2Purple);
+		
+		createDoor(floor2Blue, "north", floor2Yellow);
+		createDoor(floor2Yellow, "south", floor2Blue);
+		
+		createDoor(floor2Yellow, "east", floor2Orange);
+		createDoor(floor2Orange, "west", floor2Yellow);
+		
+		createDoor(floor2Orange, "north", floor2Red);
+		createDoor(floor2Red, "south", floor2Orange);
+		
+		createDoor(floor2Red, "east", floor2Green);
+		createDoor(floor2Green, "west", floor2Red);
+		
+		createDoor(floor2Green, "north", floor2Black);
+		createDoor(floor2Black, "south", floor2Green);
+		
+		createDoor(floor2Black, "east", throneRoom);
+		createDoor(throneRoom, "west", floor2Black);
+
+		// Connect CRAWLSPACES (accessible when small)
+		createDoor(purpleRoom, "down", hiddenCellar);
+		createDoor(hiddenCellar, "up", purpleRoom);
+		
+		createDoor(blueRoom, "down", hiddenAttic);
+		createDoor(hiddenAttic, "up", blueRoom);
+		
+		createDoor(orangeRoom, "down", hiddenChamber);
+		createDoor(hiddenChamber, "up", orangeRoom);
+
+		createItems();
 	}
+
+	/**
+	 * Helper method to populate rooms with items.
+	 */
+	private void createItems() {
+		// Mirror Chamber items
+		Item candle = new Item("Candle", "A white candle that flickers without reason", 0.1);
+		rooms.get("mirrorchamber").addItem(candle);
+
+		// Purple Room items
+		Item drinkMe = new Item("Drink Me", "A bottle labeled 'DRINK ME!' in elegant script", 0.1);
+		rooms.get("purpleroom").addItem(drinkMe);
+
+		Item floorboard = new Item("Floorboard", "A loose wooden floorboard. Something is hidden beneath...", 0.1);
+		rooms.get("purpleroom").addItem(floorboard);
+
+		// Create treasure chest container
+		Container treasureChest = new Container("Chest", "An extraordinary treasure chest with a brass lock", 15.0);
+		Item matches = new Item("Matches", "A box of damp matches that can be used to light a candle", 0.5);
+		treasureChest.addItem(matches);
+		rooms.get("purpleroom").addItem(treasureChest);
+
+		// Blue Room items
+		Item silverKey = new Item("Silver Key", "A worn but gleaming silver key. Wonder when it was last used?", 0.1);
+		Item pocketWatch = new Item("Pocket Watch", "A pocket watch that ticks backwards", 0.1);
+		Item compass = new Item("Compass", "A compass that points in the wrong direction. Rather unfortunate.", 0.5);
+		rooms.get("blueroom").addItem(silverKey);
+		rooms.get("blueroom").addItem(pocketWatch);
+		rooms.get("blueroom").addItem(compass);
+
+		// Yellow Room items
+		Item eatMe = new Item("Eat Me", "A small cake with cream. The words 'EAT ME' written on it.", 0.5);
+		Item hourglass = new Item("Hourglass", "An hourglass with black sand", 1.0);
+		rooms.get("yellowroom").addItem(eatMe);
+		rooms.get("yellowroom").addItem(hourglass);
+
+		// Orange Room items
+		Container musicBox = new Container("Music Box", "A beautiful music box with a tiny dancing figure", 8.0);
+		Item roboticToy = new Item("Robotic Toy", "A small robotic toy that moves when wound", 2.0);
+		musicBox.addItem(roboticToy);
+		Item doll = new Item("Doll", "A porcelain doll with too many eyes", 1.0);
+		rooms.get("orangeroom").addItem(musicBox);
+		rooms.get("orangeroom").addItem(doll);
+
+		// Red Room items
+		Item cardCrown = new Item("Card Crown", "A crown made of playing cards", 0.2);
+		Item redCard = new Item("Red Card", "A single red playing card (Heart Ace)", 0.1);
+		rooms.get("redroom").addItem(cardCrown);
+		rooms.get("redroom").addItem(redCard);
+
+		// Green Room items
+		Item flower = new Item("Flower", "A flower that whispers secrets", 0.1);
+		Item seeds = new Item("Seeds", "Mysterious seeds that glow faintly", 0.05);
+		rooms.get("greenroom").addItem(flower);
+		rooms.get("greenroom").addItem(seeds);
+
+		// Black Room items
+		Item shadowKey = new Item("Shadow Key", "A key made of solidified shadow", 0.5);
+		rooms.get("blackroom").addItem(shadowKey);
+
+		// Elevator Room items
+		Item loadingIcon = new Item("Loading", "....", 0.1);
+		rooms.get("elevatorroom").addItem(loadingIcon);
+
+		// Floor 2 items (similar to Floor 1)
+		Item candle2 = new Item("Candle", "A white candle that flickers", 0.1);
+		rooms.get("floor2mirror").addItem(candle2);
+
+		Item drinkMe2 = new Item("Drink Me", "A bottle labeled 'DRINK ME!'", 0.1);
+		rooms.get("floor2purple").addItem(drinkMe2);
+
+		Item goldKey = new Item("Gold Key", "A gleaming gold key", 0.1);
+		rooms.get("floor2blue").addItem(goldKey);
+
+		Item eatMe2 = new Item("Eat Me", "A slice of cake labeled 'EAT ME'", 0.5);
+		rooms.get("floor2yellow").addItem(eatMe2);
+
+		// Throne Room - final prize
+		Item crown = new Item("Queen Crown", "The Crown of Hearts - the final prize", 2.0);
+		rooms.get("throneroom").addItem(crown);
+
+		// Hidden Crawlspace items
+		Item crystal = new Item("Crystal", "A glowing crystal hidden in the cellar", 0.5);
+		rooms.get("hiddencellar").addItem(crystal);
+
+		Item journal = new Item("Journal", "A journal with fragmented memories", 0.5);
+		rooms.get("hidenattic").addItem(journal);
+
+		Item mechanism = new Item("Mechanism", "A strange mechanical device", 3.0);
+		rooms.get("hiddenchamber").addItem(mechanism);
+	}
+}
 }

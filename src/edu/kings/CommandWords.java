@@ -21,11 +21,21 @@ public class CommandWords {
 	 */
 	static {
 		CommandEnum[] tempCommands = {CommandEnum.GO,
-			 CommandEnum.QUIT,
+			CommandEnum.QUIT,
 			CommandEnum.HELP,
 			CommandEnum.LOOK,
 			CommandEnum.STATUS,
-			CommandEnum.BACK
+			CommandEnum.BACK,
+			CommandEnum.DROP,
+			CommandEnum.EXAMINE,
+			CommandEnum.INVENTORY,
+			CommandEnum.TAKE,
+			CommandEnum.SCORE,
+			CommandEnum.TURNS,
+			CommandEnum.LOCK,
+			CommandEnum.UNLOCK,
+			CommandEnum.PACK,
+			CommandEnum.UNPACK
 		};
 		validCommands = tempCommands;
 	}
