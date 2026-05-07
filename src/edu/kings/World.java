@@ -131,67 +131,67 @@ public class World {
 		addRoom(hiddenChamber);
 
 		// Connect FLOOR 1 rooms
-		createDoor(mirrorChamber, "north", purpleRoom);
-		createDoor(purpleRoom, "south", mirrorChamber);
+		this.createDoor(mirrorChamber, "north", purpleRoom);
+		this.createDoor(purpleRoom, "south", mirrorChamber);
 		
-		createDoor(purpleRoom, "east", blueRoom);
-		createDoor(blueRoom, "west", purpleRoom);
+		this.createDoor(purpleRoom, "east", blueRoom);
+		this.createDoor(blueRoom, "west", purpleRoom);
 		
-		createDoor(blueRoom, "north", yellowRoom);
-		createDoor(yellowRoom, "south", blueRoom);
+		this.createDoor(blueRoom, "north", yellowRoom);
+		this.createDoor(yellowRoom, "south", blueRoom);
 		
-		createDoor(yellowRoom, "east", orangeRoom);
-		createDoor(orangeRoom, "west", yellowRoom);
+		this.createDoor(yellowRoom, "east", orangeRoom);
+		this.createDoor(orangeRoom, "west", yellowRoom);
 		
-		createDoor(orangeRoom, "north", redRoom);
-		createDoor(redRoom, "south", orangeRoom);
+		this.createDoor(orangeRoom, "north", redRoom);
+		this.createDoor(redRoom, "south", orangeRoom);
 		
-		createDoor(redRoom, "east", greenRoom);
-		createDoor(greenRoom, "west", redRoom);
+		this.createDoor(redRoom, "east", greenRoom);
+		this.createDoor(greenRoom, "west", redRoom);
 		
-		createDoor(greenRoom, "north", blackRoom);
-		createDoor(blackRoom, "south", greenRoom);
+		this.createDoor(greenRoom, "north", blackRoom);
+		this.createDoor(blackRoom, "south", greenRoom);
 		
-		createDoor(blackRoom, "east", elevatorRoom);
-		createDoor(elevatorRoom, "west", blackRoom);
+		this.createDoor(blackRoom, "east", elevatorRoom);
+		this.createDoor(elevatorRoom, "west", blackRoom);
 
 		// Connect FLOOR 2 rooms (mirrored)
-		createDoor(elevatorRoom, "up", floor2Mirror);
-		createDoor(floor2Mirror, "down", elevatorRoom);
+		this.createDoor(elevatorRoom, "up", floor2Mirror);
+		this.createDoor(floor2Mirror, "down", elevatorRoom);
 		
-		createDoor(floor2Mirror, "north", floor2Purple);
-		createDoor(floor2Purple, "south", floor2Mirror);
+		this.createDoor(floor2Mirror, "north", floor2Purple);
+		this.createDoor(floor2Purple, "south", floor2Mirror);
 
-		createDoor(floor2Purple, "east", floor2Blue);
-		createDoor(floor2Blue, "west", floor2Purple);
+		this.createDoor(floor2Purple, "east", floor2Blue);
+		this.createDoor(floor2Blue, "west", floor2Purple);
 		
-		createDoor(floor2Blue, "north", floor2Yellow);
-		createDoor(floor2Yellow, "south", floor2Blue);
+		this.createDoor(floor2Blue, "north", floor2Yellow);
+		this.createDoor(floor2Yellow, "south", floor2Blue);
 		
-		createDoor(floor2Yellow, "east", floor2Orange);
-		createDoor(floor2Orange, "west", floor2Yellow);
+		this.createDoor(floor2Yellow, "east", floor2Orange);
+		this.createDoor(floor2Orange, "west", floor2Yellow);
 		
-		createDoor(floor2Orange, "north", floor2Red);
-		createDoor(floor2Red, "south", floor2Orange);
+		this.createDoor(floor2Orange, "north", floor2Red);
+		this.createDoor(floor2Red, "south", floor2Orange);
 		
-		createDoor(floor2Red, "east", floor2Green);
-		createDoor(floor2Green, "west", floor2Red);
+		this.createDoor(floor2Red, "east", floor2Green);
+		this.createDoor(floor2Green, "west", floor2Red);
 		
-		createDoor(floor2Green, "north", floor2Black);
-		createDoor(floor2Black, "south", floor2Green);
+		this.createDoor(floor2Green, "north", floor2Black);
+		this.createDoor(floor2Black, "south", floor2Green);
 		
-		createDoor(floor2Black, "east", throneRoom);
-		createDoor(throneRoom, "west", floor2Black);
+		this.createDoor(floor2Black, "east", throneRoom);
+		this.createDoor(throneRoom, "west", floor2Black);
 
 		// Connect CRAWLSPACES (accessible when small)
-		createDoor(purpleRoom, "down", hiddenCellar);
-		createDoor(hiddenCellar, "up", purpleRoom);
+		this.createDoor(purpleRoom, "down", hiddenCellar);
+		this.createDoor(hiddenCellar, "up", purpleRoom);
 		
-		createDoor(blueRoom, "down", hiddenAttic);
-		createDoor(hiddenAttic, "up", blueRoom);
+		this.createDoor(blueRoom, "down", hiddenAttic);
+		this.createDoor(hiddenAttic, "up", blueRoom);
 		
-		createDoor(orangeRoom, "down", hiddenChamber);
-		createDoor(hiddenChamber, "up", orangeRoom);
+		this.createDoor(orangeRoom, "down", hiddenChamber);
+		this.createDoor(hiddenChamber, "up", orangeRoom);
 
 		createItems();
 	}
@@ -199,91 +199,92 @@ public class World {
 	/**
 	 * Helper method to populate rooms with items.
 	 */
+	
 	private void createItems() {
 		// Mirror Chamber items
-		Item candle = new Item("Candle", "A white candle that flickers without reason", 0, 0.1);
-		rooms.get("mirrorchamber").addItem(candle);
+		Item candle = new Item("Candle", "A white candle that flickers without reason", 5, 0.1);
+		rooms.get("mirror chamber").addItem(candle);
 
 		// Purple Room items
-		Item drinkMe = new Item("Drink Me", "A bottle labeled 'DRINK ME!' in elegant script",0, 0.1);
-		rooms.get("purpleroom").addItem(drinkMe);
+		Item drinkMe = new Item("Drink Me", "A bottle labeled 'DRINK ME!' in elegant script", 10, 0.1);
+		rooms.get("purple room").addItem(drinkMe);
 
-		Item floorboard = new Item("Floorboard", "A loose wooden floorboard. Something is hidden beneath...",0,  0.1);
-		rooms.get("purpleroom").addItem(floorboard);
+		Item floorboard = new Item("Floorboard", "A loose wooden floorboard. Something is hidden beneath...", 0, 0.1);
+		rooms.get("purple room").addItem(floorboard);
 
 		// Create treasure chest container
-		Container treasureChest = new Container("Chest", "An extraordinary treasure chest with a brass lock",0, 15.0);
-		Item matches = new Item("Matches", "A box of damp matches that can be used to light a candle",0, 0.5);
+		Container treasureChest = new Container("Chest", "An extraordinary treasure chest with a brass lock", 0, 15.0);
+		Item matches = new Item("Matches", "A box of damp matches that can be used to light a candle", 0, 0.5);
 		treasureChest.addItem(matches);
-		rooms.get("purpleroom").addItem(treasureChest);
+		rooms.get("purple room").addItem(treasureChest);
 
 		// Blue Room items
-		Item silverKey = new Item("Silver Key", "A worn but gleaming silver key. Wonder when it was last used?",0,  0.1);
-		Item pocketWatch = new Item("Pocket Watch", "A pocket watch that ticks backwards", 0, 0.1);
-		Item compass = new Item("Compass", "A compass that points in the wrong direction. Rather unfortunate.", 0, 0.5);
-		rooms.get("blueroom").addItem(silverKey);
-		rooms.get("blueroom").addItem(pocketWatch);
-		rooms.get("blueroom").addItem(compass);
+		Item silverKey = new Item("Silver Key", "A worn but gleaming silver key. Wonder when it was last used?", 15, 0.1);
+		Item pocketWatch = new Item("Pocket Watch", "A pocket watch that ticks backwards", 10, 0.1);
+		Item compass = new Item("Compass", "A compass that points in the wrong direction. Rather unfortunate.", 5, 0.5);
+		rooms.get("blue room").addItem(silverKey);
+		rooms.get("blue room").addItem(pocketWatch);
+		rooms.get("blue room").addItem(compass);
 
 		// Yellow Room items
-		Item eatMe = new Item("Eat Me", "A small cake with cream. The words 'EAT ME' written on it.",0, 0.5);
-		Item hourglass = new Item("Hourglass", "An hourglass with black sand",0,1.0);
-		rooms.get("yellowroom").addItem(eatMe);
-		rooms.get("yellowroom").addItem(hourglass);
+		Item eatMe = new Item("Eat Me", "A small cake with cream. The words 'EAT ME' written on it.", 10, 0.5);
+		Item hourglass = new Item("Hourglass", "An hourglass with black sand", 20, 1.0);
+		rooms.get("yellow room").addItem(eatMe);
+		rooms.get("yellow room").addItem(hourglass);
 
 		// Orange Room items
-		Container musicBox = new Container("Music Box", "A beautiful music box with a tiny dancing figure",0, 8.0);
-		Item roboticToy = new Item("Robotic Toy", "A small robotic toy that moves when wound",0, 2.0);
+		Container musicBox = new Container("Music Box", "A beautiful music box with a tiny dancing figure", 25, 8.0);
+		Item roboticToy = new Item("Robotic Toy", "A small robotic toy that moves when wound", 15, 2.0);
 		musicBox.addItem(roboticToy);
-		Item doll = new Item("Doll", "A porcelain doll with too many eyes", 0, 1.0);
-		rooms.get("orangeroom").addItem(musicBox);
-		rooms.get("orangeroom").addItem(doll);
+		Item doll = new Item("Doll", "A porcelain doll with too many eyes", 10, 1.0);
+		rooms.get("orange room").addItem(musicBox);
+		rooms.get("orange room").addItem(doll);
 
 		// Red Room items
-		Item cardCrown = new Item("Card Crown", "A crown made of playing cards",0, 0.2);
-		Item redCard = new Item("Red Card", "A single red playing card (Heart Ace)", 0, 0.1);
-		rooms.get("redroom").addItem(cardCrown);
-		rooms.get("redroom").addItem(redCard);
+		Item cardCrown = new Item("Card Crown", "A crown made of playing cards", 20, 0.2);
+		Item redCard = new Item("Red Card", "A single red playing card (Heart Ace)", 5, 0.1);
+		rooms.get("red room").addItem(cardCrown);
+		rooms.get("red room").addItem(redCard);
 
 		// Green Room items
-		Item flower = new Item("Flower", "A flower that whispers secrets",0, 0.1);
-		Item seeds = new Item("Seeds", "Mysterious seeds that glow faintly", 0, 0.05);
-		rooms.get("greenroom").addItem(flower);
-		rooms.get("greenroom").addItem(seeds);
+		Item flower = new Item("Flower", "A flower that whispers secrets", 10, 0.1);
+		Item seeds = new Item("Seeds", "Mysterious seeds that glow faintly", 8, 0.05);
+		rooms.get("green room").addItem(flower);
+		rooms.get("green room").addItem(seeds);
 
 		// Black Room items
-		Item shadowKey = new Item("Shadow Key", "A key made of solidified shadow",0, 0.5);
-		rooms.get("blackroom").addItem(shadowKey);
+		Item shadowKey = new Item("Shadow Key", "A key made of solidified shadow", 30, 0.5);
+		rooms.get("black room").addItem(shadowKey);
 
 		// Elevator Room items
-		Item loadingIcon = new Item("Loading", "....",0, 0.1);
-		rooms.get("elevatorroom").addItem(loadingIcon);
+		Item loadingIcon = new Item("Loading", "....", 0, 0.1);
+		rooms.get("elevator room").addItem(loadingIcon);
 
-		// Floor 2 items (similar to Floor 1)
-		Item candle2 = new Item("Candle", "A white candle that flickers",0, 0.1);
-		rooms.get("floor2mirror").addItem(candle2);
+		// Floor 2 items
+		Item candle2 = new Item("Candle", "A white candle that flickers", 5, 0.1);
+		rooms.get("floor 2 mirror").addItem(candle2);
 
-		Item drinkMe2 = new Item("Drink Me", "A bottle labeled 'DRINK ME!'", 0, 0.1);
-		rooms.get("floor2purple").addItem(drinkMe2);
+		Item drinkMe2 = new Item("Drink Me", "A bottle labeled 'DRINK ME!'", 10, 0.1);
+		rooms.get("floor 2 purple").addItem(drinkMe2);
 
-		Item goldKey = new Item("Gold Key", "A gleaming gold key",0, 0.1);
-		rooms.get("floor2blue").addItem(goldKey);
+		Item goldKey = new Item("Gold Key", "A gleaming gold key", 20, 0.1);
+		rooms.get("floor 2 blue").addItem(goldKey);
 
-		Item eatMe2 = new Item("Eat Me", "A slice of cake labeled 'EAT ME'",0,0.5);
-		rooms.get("floor2yellow").addItem(eatMe2);
+		Item eatMe2 = new Item("Eat Me", "A slice of cake labeled 'EAT ME'", 10, 0.5);
+		rooms.get("floor 2 yellow").addItem(eatMe2);
 
 		// Throne Room - final prize
-		Item crown = new Item("Queen Crown", "The Crown of Hearts - the final prize", 0, 2.0);
-		rooms.get("throneroom").addItem(crown);
+		Item crown = new Item("Queen Crown", "The Crown of Hearts - the final prize", 100, 2.0);
+		rooms.get("throne room").addItem(crown);
 
 		// Hidden Crawlspace items
-		Item crystal = new Item("Crystal", "A glowing crystal hidden in the cellar", 0, 0.5);
-		rooms.get("hiddencellar").addItem(crystal);
+		Item crystal = new Item("Crystal", "A glowing crystal hidden in the cellar", 50, 0.5);
+		rooms.get("hidden cellar").addItem(crystal);
 
-		Item journal = new Item("Journal", "A journal with fragmented memories", 0, 0.5);
-		rooms.get("hidenattic").addItem(journal);
+		Item journal = new Item("Journal", "A journal with fragmented memories", 40, 0.5);
+		rooms.get("hidden attic").addItem(journal);
 
-		Item mechanism = new Item("Mechanism", "A strange mechanical device", 0, 3.0);
-		rooms.get("hiddencrawlspce").addItem(mechanism);
+		Item mechanism = new Item("Mechanism", "A strange mechanical device", 60, 3.0);
+		rooms.get("hidden chamber").addItem(mechanism);
 	}
 }

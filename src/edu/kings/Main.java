@@ -55,6 +55,7 @@ public class Main extends JFrame implements ActionListener {
 	public Main() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
+		
 
 		// Setting up the menu bar
 		JMenuBar menuBar = new JMenuBar();
@@ -108,10 +109,15 @@ public class Main extends JFrame implements ActionListener {
 		setSize(WINDOW_DIMENSION);
 		setVisible(true);
 		commandField.requestFocus();
-
-		game = new Game();
-		game.play();
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				game = new Game();
+				game.play();
+			}
+		}).start();
 	}
+
 
 	/**
 	 * Default action listener.

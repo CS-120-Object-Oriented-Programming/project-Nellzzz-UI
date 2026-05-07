@@ -38,7 +38,7 @@ public class Game {
 	private void createNPCs() {
 		NPC cheshireCat = new NPC(
 			"Cheshire Cat",
-			"I am not myself, for I am a picture of that self. Face the camera!",
+			"I fade in and out of reality. What must you do to see me clearly?",
 			"camera",
 			5,
 			"camera"
@@ -47,8 +47,8 @@ public class Game {
 
 		NPC whiteRabbit = new NPC(
 			"White Rabbit",
-			"Catch me if you can! What time is it RIGHT NOW?",
-			"12:34",
+			"I run through time itself. What do you need to catch me?",
+			"time",
 			5,
 			"keyboard"
 		);
@@ -56,7 +56,7 @@ public class Game {
 
 		NPC madHatter = new NPC(
 			"Mad Hatter",
-			"There is no room! There is no room!",
+			"There is no room at my table! What must you do to make room?",
 			"drop",
 			5,
 			"inventory"
@@ -65,7 +65,7 @@ public class Game {
 
 		NPC caterpillar = new NPC(
 			"Caterpillar",
-			"Who... are... YOU? Tell me your name... BACKWARDS!",
+			"Who are YOU? Speak your name as it would appear reversed in a mirror!",
 			"",
 			5,
 			"backward"
@@ -74,7 +74,7 @@ public class Game {
 
 		NPC javaCoffee = new NPC(
 			"Java Coffee Drinker",
-			"What does Java need to wake up?",
+			"What does Java programming language need to wake up in the morning?",
 			"beans",
 			5,
 			"standard"
@@ -83,7 +83,7 @@ public class Game {
 
 		NPC legRiddle = new NPC(
 			"Leg Riddler",
-			"What has a bottom at the top?",
+			"What has a bottom at the top? Think of a body part...",
 			"legs",
 			5,
 			"standard"
@@ -92,7 +92,7 @@ public class Game {
 
 		NPC tweedleDee = new NPC(
 			"Tweedledee",
-			"If you need to go NORTH through the mirror, which way do you walk?",
+			"The mirror shows north as south. If the mirror is wrong, which way is right?",
 			"south",
 			5,
 			"standard"
@@ -249,10 +249,22 @@ public class Game {
 	 * Print out the closing message for the player.
 	 */
 	private void printGoodbye() {
-		Writer.println("I hope you weren't too bored here on the Campus of Kings!");
-		Writer.println("Thank you for playing.  Good bye.");
 		Writer.println();
-		Writer.println("You have earned " + player.getScore() + " points in " + player.getTurns() + " turns.");
+		Writer.println("╔════════════════════════════════════════════════════════╗");
+		Writer.println("║          YOU ESCAPE FROM WONDERLAND                   ║");
+		Writer.println("╚════════════════════════════════════════════════════════╝");
+		Writer.println();
+		Writer.println("You stumble back through the mirror...");
+		Writer.println();
+		Writer.println("Thank you for playing Alex's Twisted Wonderland!");
+		Writer.println();
+		Writer.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+		Writer.println("Final Statistics:");
+		Writer.println("  Points Earned: " + player.getScore());
+		Writer.println("  Turns Taken: " + player.getTurns());
+		Writer.println("  Final Sanity: " + player.getSanity() + "/100");
+		Writer.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+		Writer.println();
 	}
 
 	/**
@@ -260,11 +272,48 @@ public class Game {
 	 * message and a list of the command words.
 	 */
 	private void printHelp() {
-		Writer.println("You are lost. You are alone. You wander");
-		Writer.println("around at the university.");
 		Writer.println();
-		Writer.println("Your command words are:");
-		Writer.println("   go quit help look status back examine take drop inventory score turns");
+		Writer.println("╔════════════════════════════════════════════════════════╗");
+		Writer.println("║                  AVAILABLE COMMANDS                    ║");
+		Writer.println("╚════════════════════════════════════════════════════════╝");
+		Writer.println();
+		Writer.println("Movement:");
+		Writer.println("  go <direction>       - Move in a direction (north, south, east, west)");
+		Writer.println("  back                 - Return to the previous room");
+		Writer.println();
+		Writer.println("Exploration:");
+		Writer.println("  look                 - Examine the current room");
+		Writer.println("  examine <item>       - Look closely at an item");
+		Writer.println();
+		Writer.println("Inventory:");
+		Writer.println("  inventory            - Show what you're carrying");
+		Writer.println("  take <item>          - Pick up an item");
+		Writer.println("  drop <item>          - Drop an item");
+		Writer.println();
+		Writer.println("Containers:");
+		Writer.println("  pack <item> in <container>     - Store an item");
+		Writer.println("  unpack <item> from <container> - Retrieve an item");
+		Writer.println();
+		Writer.println("Doors:");
+		Writer.println("  lock <direction>     - Lock a door");
+		Writer.println("  unlock <direction>   - Unlock a door with a key");
+		Writer.println();
+		Writer.println("Consumables:");
+		Writer.println("  drink <item>         - Drink a potion (resize yourself)");
+		Writer.println("  eat <item>           - Eat food (resize yourself)");
+		Writer.println();
+		Writer.println("NPCs:");
+		Writer.println("  riddle <npc>         - Talk to an NPC and solve their riddle");
+		Writer.println();
+		Writer.println("Status:");
+		Writer.println("  status               - View your stats (name, sanity, size, score)");
+		Writer.println("  score                - View your current score");
+		Writer.println("  turns                - View number of turns taken");
+		Writer.println();
+		Writer.println("Other:");
+		Writer.println("  help                 - Show this help message");
+		Writer.println("  quit                 - Exit the game");
+		Writer.println();
 	}
 
 	/**
@@ -272,10 +321,33 @@ public class Game {
 	 */
 	private void printWelcome() {
 		Writer.println();
-		Writer.println("Welcome to the Campus of Kings!");
-		Writer.println("Campus of Kings is a new, incredibly boring adventure game.");
-		Writer.println("Type 'help' if you need help.");
+		Writer.println("╔════════════════════════════════════════════════════════╗");
+		Writer.println("║   WELCOME TO ALEX'S TWISTED WONDERLAND                 ║");
+		Writer.println("║   A Text-Based Adventure Through Madness               ║");
+		Writer.println("╚════════════════════════════════════════════════════════╝");
 		Writer.println();
+		Writer.println("You wake up in front of a strange mirror. Nothing seems right.");
+		Writer.println("The air is thick with mystery and your reflection stares back");
+		Writer.println("at you with an uncanny smile...");
+		Writer.println();
+		Writer.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+		Writer.println();
+		
+		Writer.println("But first... what is your name, brave traveler?");
+		String name = Reader.getResponse();
+		player.setPlayerName(name);
+		
+		Writer.println();
+		Writer.println("Welcome, " + name + "!");
+		Writer.println();
+		Writer.println("Your sanity meter: " + player.getSanity() + "/100");
+		Writer.println("Current size: " + player.getSize());
+		Writer.println();
+		Writer.println("Type 'help' for commands. Type 'look' to examine your surroundings.");
+		Writer.println();
+		Writer.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+		Writer.println();
+		
 		printLocationInformation();
 	}
 	/**
@@ -672,8 +744,18 @@ public class Game {
 			return;
 		}
 
-		Writer.println("\n" + npc.getName() + " says: " + npc.getRiddle());
-		Writer.println("Your answer:");
+		Writer.println();
+		Writer.println("► " + npc.getName() + " gazes at you with an uncanny smile...");
+		Writer.println();
+		Writer.println(npc.getRiddle());
+		Writer.println();
+		Writer.println("What is your answer?");
+		Writer.println("(A) First option");
+		Writer.println("(B) Second option");
+		Writer.println("(C) Third option");
+		Writer.println("(D) Fourth option");
+		Writer.println();
+		Writer.print("Your choice (A/B/C/D): ");
 
 		String answer = Reader.getResponse();
 
@@ -683,20 +765,26 @@ public class Game {
 		}
 
 		if (npc.checkAnswer(answer)) {
-			Writer.println(npc.getName() + " nods slowly. You were correct.");
+			Writer.println();
+			Writer.println("✓ " + npc.getName() + " nods slowly... You were correct!");
 			npc.setSolved(true);
 			player.gainSanity(15);
 			Writer.println("Sanity +15");
 		} else {
-			Writer.println(npc.getName() + " smiles wickedly. That's not right.");
+			Writer.println();
+			Writer.println("✗ " + npc.getName() + " smiles wickedly. That's not right...");
 			player.loseSanity(5);
 			Writer.println("Sanity -5");
 
 			if (player.getSanity() <= 0) {
-				Writer.println("\n=== GAME OVER ===");
-				Writer.println("Your sanity has shattered. The Wonderland claims another victim...");
+				Writer.println();
+				Writer.println("╔════════════════════════════════════════════════════════╗");
+				Writer.println("║                    GAME OVER                           ║");
+				Writer.println("║  Your sanity has shattered. Wonderland claims you...   ║");
+				Writer.println("╚════════════════════════════════════════════════════════╝");
 				System.exit(0);
 			}
 		}
+		Writer.println();
 	}
 }
