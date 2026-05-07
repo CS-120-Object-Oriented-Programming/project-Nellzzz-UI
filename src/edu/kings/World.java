@@ -201,90 +201,89 @@ public class World {
 	 */
 	private void createItems() {
 		// Mirror Chamber items
-		Item candle = new Item("Candle", "A white candle that flickers without reason", 0.1);
+		Item candle = new Item("Candle", "A white candle that flickers without reason", 0, 0.1);
 		rooms.get("mirrorchamber").addItem(candle);
 
 		// Purple Room items
-		Item drinkMe = new Item("Drink Me", "A bottle labeled 'DRINK ME!' in elegant script", 0.1);
+		Item drinkMe = new Item("Drink Me", "A bottle labeled 'DRINK ME!' in elegant script",0, 0.1);
 		rooms.get("purpleroom").addItem(drinkMe);
 
-		Item floorboard = new Item("Floorboard", "A loose wooden floorboard. Something is hidden beneath...", 0.1);
+		Item floorboard = new Item("Floorboard", "A loose wooden floorboard. Something is hidden beneath...",0,  0.1);
 		rooms.get("purpleroom").addItem(floorboard);
 
 		// Create treasure chest container
-		Container treasureChest = new Container("Chest", "An extraordinary treasure chest with a brass lock", 15.0);
-		Item matches = new Item("Matches", "A box of damp matches that can be used to light a candle", 0.5);
+		Container treasureChest = new Container("Chest", "An extraordinary treasure chest with a brass lock",0, 15.0);
+		Item matches = new Item("Matches", "A box of damp matches that can be used to light a candle",0, 0.5);
 		treasureChest.addItem(matches);
 		rooms.get("purpleroom").addItem(treasureChest);
 
 		// Blue Room items
-		Item silverKey = new Item("Silver Key", "A worn but gleaming silver key. Wonder when it was last used?", 0.1);
-		Item pocketWatch = new Item("Pocket Watch", "A pocket watch that ticks backwards", 0.1);
-		Item compass = new Item("Compass", "A compass that points in the wrong direction. Rather unfortunate.", 0.5);
+		Item silverKey = new Item("Silver Key", "A worn but gleaming silver key. Wonder when it was last used?",0,  0.1);
+		Item pocketWatch = new Item("Pocket Watch", "A pocket watch that ticks backwards", 0, 0.1);
+		Item compass = new Item("Compass", "A compass that points in the wrong direction. Rather unfortunate.", 0, 0.5);
 		rooms.get("blueroom").addItem(silverKey);
 		rooms.get("blueroom").addItem(pocketWatch);
 		rooms.get("blueroom").addItem(compass);
 
 		// Yellow Room items
-		Item eatMe = new Item("Eat Me", "A small cake with cream. The words 'EAT ME' written on it.", 0.5);
-		Item hourglass = new Item("Hourglass", "An hourglass with black sand", 1.0);
+		Item eatMe = new Item("Eat Me", "A small cake with cream. The words 'EAT ME' written on it.",0, 0.5);
+		Item hourglass = new Item("Hourglass", "An hourglass with black sand",0,1.0);
 		rooms.get("yellowroom").addItem(eatMe);
 		rooms.get("yellowroom").addItem(hourglass);
 
 		// Orange Room items
-		Container musicBox = new Container("Music Box", "A beautiful music box with a tiny dancing figure", 8.0);
-		Item roboticToy = new Item("Robotic Toy", "A small robotic toy that moves when wound", 2.0);
+		Container musicBox = new Container("Music Box", "A beautiful music box with a tiny dancing figure",0, 8.0);
+		Item roboticToy = new Item("Robotic Toy", "A small robotic toy that moves when wound",0, 2.0);
 		musicBox.addItem(roboticToy);
-		Item doll = new Item("Doll", "A porcelain doll with too many eyes", 1.0);
+		Item doll = new Item("Doll", "A porcelain doll with too many eyes", 0, 1.0);
 		rooms.get("orangeroom").addItem(musicBox);
 		rooms.get("orangeroom").addItem(doll);
 
 		// Red Room items
-		Item cardCrown = new Item("Card Crown", "A crown made of playing cards", 0.2);
-		Item redCard = new Item("Red Card", "A single red playing card (Heart Ace)", 0.1);
+		Item cardCrown = new Item("Card Crown", "A crown made of playing cards",0, 0.2);
+		Item redCard = new Item("Red Card", "A single red playing card (Heart Ace)", 0, 0.1);
 		rooms.get("redroom").addItem(cardCrown);
 		rooms.get("redroom").addItem(redCard);
 
 		// Green Room items
-		Item flower = new Item("Flower", "A flower that whispers secrets", 0.1);
-		Item seeds = new Item("Seeds", "Mysterious seeds that glow faintly", 0.05);
+		Item flower = new Item("Flower", "A flower that whispers secrets",0, 0.1);
+		Item seeds = new Item("Seeds", "Mysterious seeds that glow faintly", 0, 0.05);
 		rooms.get("greenroom").addItem(flower);
 		rooms.get("greenroom").addItem(seeds);
 
 		// Black Room items
-		Item shadowKey = new Item("Shadow Key", "A key made of solidified shadow", 0.5);
+		Item shadowKey = new Item("Shadow Key", "A key made of solidified shadow",0, 0.5);
 		rooms.get("blackroom").addItem(shadowKey);
 
 		// Elevator Room items
-		Item loadingIcon = new Item("Loading", "....", 0.1);
+		Item loadingIcon = new Item("Loading", "....",0, 0.1);
 		rooms.get("elevatorroom").addItem(loadingIcon);
 
 		// Floor 2 items (similar to Floor 1)
-		Item candle2 = new Item("Candle", "A white candle that flickers", 0.1);
+		Item candle2 = new Item("Candle", "A white candle that flickers",0, 0.1);
 		rooms.get("floor2mirror").addItem(candle2);
 
-		Item drinkMe2 = new Item("Drink Me", "A bottle labeled 'DRINK ME!'", 0.1);
+		Item drinkMe2 = new Item("Drink Me", "A bottle labeled 'DRINK ME!'", 0, 0.1);
 		rooms.get("floor2purple").addItem(drinkMe2);
 
-		Item goldKey = new Item("Gold Key", "A gleaming gold key", 0.1);
+		Item goldKey = new Item("Gold Key", "A gleaming gold key",0, 0.1);
 		rooms.get("floor2blue").addItem(goldKey);
 
-		Item eatMe2 = new Item("Eat Me", "A slice of cake labeled 'EAT ME'", 0.5);
+		Item eatMe2 = new Item("Eat Me", "A slice of cake labeled 'EAT ME'",0,0.5);
 		rooms.get("floor2yellow").addItem(eatMe2);
 
 		// Throne Room - final prize
-		Item crown = new Item("Queen Crown", "The Crown of Hearts - the final prize", 2.0);
+		Item crown = new Item("Queen Crown", "The Crown of Hearts - the final prize", 0, 2.0);
 		rooms.get("throneroom").addItem(crown);
 
 		// Hidden Crawlspace items
-		Item crystal = new Item("Crystal", "A glowing crystal hidden in the cellar", 0.5);
+		Item crystal = new Item("Crystal", "A glowing crystal hidden in the cellar", 0, 0.5);
 		rooms.get("hiddencellar").addItem(crystal);
 
-		Item journal = new Item("Journal", "A journal with fragmented memories", 0.5);
+		Item journal = new Item("Journal", "A journal with fragmented memories", 0, 0.5);
 		rooms.get("hidenattic").addItem(journal);
 
-		Item mechanism = new Item("Mechanism", "A strange mechanical device", 3.0);
-		rooms.get("hiddenchamber").addItem(mechanism);
+		Item mechanism = new Item("Mechanism", "A strange mechanical device", 0, 3.0);
+		rooms.get("hiddencrawlspce").addItem(mechanism);
 	}
-}
 }
