@@ -78,16 +78,16 @@ public class World {
 		);
 		addRoom(blueRoom);
 
-		Room yellowRoom = new Room("yellow room", "You are in a room with a floor of quicksand. It pulls at your feet with each step.");
+		Room yellowRoom = new Room("yellow room", "You are in a room with a floor of quicksand. It pulls at your feet with each step. You see the Caterpillar sitting on a mushroom.");
 		addRoom(yellowRoom);
 
-		Room orangeRoom = new Room("orange room", "You are in a toy room overcrowded with dolls that whisper when you are not looking.");
+		Room orangeRoom = new Room("orange room", "You are in a toy room overcrowded with dolls that whisper when you are not looking. you see the Tweedledee Twins playing in the corner.");
 		addRoom(orangeRoom);
 
-		Room redRoom = new Room("red room", "You are in the Card Throne, where playing card guards stand at attention.");
+		Room redRoom = new Room("red room", "You are in the Card Throne, where playing card guards stand at attention. You see Mad Hatter for some odd reason.");
 		addRoom(redRoom);
 
-		Room greenRoom = new Room("green room", "You are in an impossible garden where flowers speak riddles.");
+		Room greenRoom = new Room("green room", "You are in an impossible garden where flowers speak riddles. You see the Mad Hatter sitting at a tea party.");
 		addRoom(greenRoom);
 
 		Room blackRoom = new Room("black room", "You are in a shadowy hall where darkness seems to have weight.");
@@ -125,10 +125,10 @@ public class World {
 		addRoom(throneRoom);
 
 		// CRAWLSPACES - Small rooms accessible when small
-		Room hiddenCellar = new Room("hidden cellar", "You are in a small hidden cellar beneath the kitchen. It smells of earth and secrets.");
+		Room hiddenCellar = new Room("hidden cellar", "You are in a small hidden cellar beneath the kitchen. It smells of earth and secrets. You see Leg Riddler");
 		addRoom(hiddenCellar);
 
-		Room hiddenAttic = new Room("hidden attic", "You are in a cramped attic above the clock room. Dust particles dance in strange patterns.");
+		Room hiddenAttic = new Room("hidden attic", "You are in a cramped attic above the clock room. Dust particles dance in strange patterns. You see Mrs.Java sitting by the window.");
 		addRoom(hiddenAttic);
 
 		Room hiddenChamber = new Room("hidden chamber", "You are in a mysterious chamber hidden behind the toys. Strange machinery hums.");

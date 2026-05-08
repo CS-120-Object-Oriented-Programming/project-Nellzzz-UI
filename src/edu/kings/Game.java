@@ -55,9 +55,9 @@ public class Game {
 		npcs.put("whiterabbit", whiteRabbit);
 
 		NPC madHatter = new NPC(
-			"Mad Hatter",
-			"There is no room at my table! What must you do to make room?",
-			"drop",
+			"MadHatter",
+			"There is no room at my table! What must you do to make room? In a drop of a hat + a drop of magic + make drop of room + Hatters Hat ",
+			 "c drop" ,
 			5,
 			"inventory"
 		);
@@ -65,26 +65,26 @@ public class Game {
 
 		NPC caterpillar = new NPC(
 			"Caterpillar",
-			"Who are YOU? Speak your name as it would appear reversed in a mirror!",
-			"",
+			"Who are YOU? drowkcab + iknowwhatyouarebutwhatami + 1emanymispl+ 2emanymispl",
+			"C",
 			5,
 			"backward"
 		);
 		npcs.put("caterpillar", caterpillar);
 
 		NPC javaCoffee = new NPC(
-			"Java Coffee Drinker",
-			"What does Java programming language need to wake up in the morning?",
-			"beans",
+			"JavaCoffee",
+			"What does Java programming language need to wake up in the morning? water + coffee + beans  + Jesus" ,
+			"c",
 			5,
 			"standard"
 		);
 		npcs.put("javacoffee", javaCoffee);
 
 		NPC legRiddle = new NPC(
-			"Leg Riddler",
-			"What has a bottom at the top? Think of a body part...",
-			"legs",
+			"LegRiddler",
+			"What has a bottom at the top? legs + feet + yourmom + hands",
+			"a",
 			5,
 			"standard"
 		);
@@ -92,21 +92,14 @@ public class Game {
 
 		NPC tweedleDee = new NPC(
 			"Tweedledee",
-			"The mirror shows north as south. If the mirror is wrong, which way is right?",
-			"south",
+			"The mirror shows north. If the mirror is wrong, which way is right? foward + backward + up + down",
+			"d",
 			5,
 			"standard"
 		);
 		npcs.put("tweedledee", tweedleDee);
 
-		NPC queenOfHearts = new NPC(
-			"Queen of Hearts",
-			"Who is the true ruler of this twisted world?",
-			"queen",
-			5,
-			"standard"
-		);
-		npcs.put("queenofhearts", queenOfHearts);
+		
 	}
 
 	/**

@@ -10,10 +10,10 @@ With unsettling wonder...
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-But first... what is your name, brave traveler? 
+But first... what is your name, brave traveler? go north 
 
 ╔════════════════════════════════════════════════════════╗
-║                    Welcome,                                    ║
+║                    Welcome,              go north              ║
 ╚════════════════════════════════════════════════════════╝
 
 Sanity Meter: 100/100
@@ -52,7 +52,7 @@ Available exits: north
 ╔════════════════════════════════════════════════════════╗
 ║                      YOUR STATUS                       ║
 ╚════════════════════════════════════════════════════════╝
-  Name:     
+  Name:     go north 
   Sanity:   100/100
   Size:     normal
   Score:    0
@@ -141,129 +141,8 @@ I don't know what you mean...
 I don't know what you mean...
 > 
 I don't know what you mean...
-> go  north
-
-You travel north...
-
-purple room:
-You are You are in a purple kitchen that smells of burnt pepper. A treasure chest sits on the table, and a Cheshire Cat grins from atop it!
-Items: drinkme chest floorboard matches 
-
-                    [ N ]
-                      |
-          [ W ] ------+------ [ E ]
-                      |
-                    [ S ]
-
-Available exits: east south down 
-
-> go east
-
-You travel east...
-
-blue room:
-You are You are in a room filled with ticking clocks. Dust and cobwebs sowing them down overtime. What that out the conner of the room?! A white tail is visible under one of the tall clocks. The white Rabbit is there!
-Items: pocketwatch compass silverkey 
-
-                    [ N ]
-                      |
-          [ W ] ------+------ [ E ]
-                      |
-                    [ S ]
-
-Available exits: north west down 
-
 > 
 I don't know what you mean...
-> 
-I don't know what you mean...
-> 
-I don't know what you mean...
-> riddle white rabbit 
-
-► White Rabbit gazes at you with a curious expression...
-
-I run through time itself, But i always seem to try to be beside my Timly clock.But could never Gain The lively clock. Its odd my calender has the right date. MMXXVI+1 + MMV-1 + 2+MMXXVI + 2-MMV
-
-What is your answer?
-(A) First option
-(B) Second option
-(C) Third option
-(D) Fourth option
-
-Your choice (A/B/C/D): d
-
-✓ White Rabbit nods slowly... You were correct!
-Sanity +15
-
-> go up 
-There is no door to the up!
-Available exits: north, west, down
-> go down 
-
-You travel down...
-
-hidden attic:
-You are You are in a cramped attic above the clock room. Dust particles dance in strange patterns.
-Items: journal 
-
-                    [ N ]
-                      |
-          [ W ] ------+------ [ E ]
-                      |
-                    [ S ]
-
-Available exits: up 
-
-> up
-I don't know what you mean...
-> go up
-
-You travel up...
-
-blue room:
-You are You are in a room filled with ticking clocks. Dust and cobwebs sowing them down overtime. What that out the conner of the room?! A white tail is visible under one of the tall clocks. The white Rabbit is there!
-Items: pocketwatch compass silverkey 
-
-                    [ N ]
-                      |
-          [ W ] ------+------ [ E ]
-                      |
-                    [ S ]
-
-Available exits: north west down 
-
-> go west
-
-You travel west...
-
-purple room:
-You are You are in a purple kitchen that smells of burnt pepper. A treasure chest sits on the table, and a Cheshire Cat grins from atop it!
-Items: drinkme chest floorboard matches 
-
-                    [ N ]
-                      |
-          [ W ] ------+------ [ E ]
-                      |
-                    [ S ]
-
-Available exits: east south down 
-
-> go south 
-
-You travel south...
-
-mirror chamber:
-You are You stand before an ornate mirror. Your reflection stares back, but something feels... wrong.
-
-                    [ N ]
-                      |
-          [ W ] ------+------ [ E ]
-                      |
-                    [ S ]
-
-Available exits: north 
-
 > go north 
 
 You travel north...
@@ -285,7 +164,7 @@ Available exits: east south down
 You travel down...
 
 hidden cellar:
-You are You are in a small hidden cellar beneath the kitchen. It smells of earth and secrets.
+You are You are in a small hidden cellar beneath the kitchen. It smells of earth and secrets. You see Leg Riddler
 Items: crystal 
 
                     [ N ]
@@ -296,10 +175,13 @@ Items: crystal
 
 Available exits: up 
 
-> go up 
-
-You travel up...
-
+> riddle the leg riddler
+That person is not here.
+> riddlelegriddler
+I don't know what you mean...
+> riddle legriddler
+That person is not here.
+> back
 purple room:
 You are You are in a purple kitchen that smells of burnt pepper. A treasure chest sits on the table, and a Cheshire Cat grins from atop it!
 Items: drinkme chest floorboard matches 
@@ -312,6 +194,9 @@ Items: drinkme chest floorboard matches
 
 Available exits: east south down 
 
+> go es\ast
+There is no door to the es\ast!
+Available exits: south, east, down
 > go east
 
 You travel east...
@@ -328,45 +213,29 @@ Items: pocketwatch compass silverkey
 
 Available exits: north west down 
 
-> go north
+> riddle the white rabbit
+That person is not here.
+> riddle white rabbit
 
-You travel north...
+► White Rabbit gazes at you with a curious expression...
 
-yellow room:
-You are You are in a room with a floor of quicksand. It pulls at your feet with each step.
-Items: eat me hourglass 
+I run through time itself, But i always seem to try to be beside my Timly clock.But could never Gain The lively clock. Its odd my calender has the right date. MMXXVI+1 + MMV-1 + 2+MMXXVI + 2-MMV
 
-                    [ N ]
-                      |
-          [ W ] ------+------ [ E ]
-                      |
-                    [ S ]
+What is your answer?
+(A) First option
+(B) Second option
+(C) Third option
+(D) Fourth option
 
-Available exits: east south 
+Your choice (A/B/C/D): back
 
-> go east
+✗ White Rabbit smiles wickedly. That's not right...
+Sanity -5
 
-You travel east...
-
-orange room:
-You are You are in a toy room overcrowded with dolls that whisper when you are not looking.
-Items: doll music box 
-
-                    [ N ]
-                      |
-          [ W ] ------+------ [ E ]
-                      |
-                    [ S ]
-
-Available exits: north west down 
-
-> go down 
-
-You travel down...
-
-hidden chamber:
-You are You are in a mysterious chamber hidden behind the toys. Strange machinery hums.
-Items: mechanism 
+> back
+purple room:
+You are You are in a purple kitchen that smells of burnt pepper. A treasure chest sits on the table, and a Cheshire Cat grins from atop it!
+Items: drinkme chest floorboard matches 
 
                     [ N ]
                       |
@@ -374,31 +243,15 @@ Items: mechanism
                       |
                     [ S ]
 
-Available exits: up 
-
-> go up
-
-You travel up...
-
-orange room:
-You are You are in a toy room overcrowded with dolls that whisper when you are not looking.
-Items: doll music box 
-
-                    [ N ]
-                      |
-          [ W ] ------+------ [ E ]
-                      |
-                    [ S ]
-
-Available exits: north west down 
+Available exits: east south down 
 
 > go down
 
 You travel down...
 
-hidden chamber:
-You are You are in a mysterious chamber hidden behind the toys. Strange machinery hums.
-Items: mechanism 
+hidden cellar:
+You are You are in a small hidden cellar beneath the kitchen. It smells of earth and secrets. You see Leg Riddler
+Items: crystal 
 
                     [ N ]
                       |
@@ -408,112 +261,9 @@ Items: mechanism
 
 Available exits: up 
 
-> go up
-
-You travel up...
-
-orange room:
-You are You are in a toy room overcrowded with dolls that whisper when you are not looking.
-Items: doll music box 
-
-                    [ N ]
-                      |
-          [ W ] ------+------ [ E ]
-                      |
-                    [ S ]
-
-Available exits: north west down 
-
-> go west
-
-You travel west...
-
-yellow room:
-You are You are in a room with a floor of quicksand. It pulls at your feet with each step.
-Items: eat me hourglass 
-
-                    [ N ]
-                      |
-          [ W ] ------+------ [ E ]
-                      |
-                    [ S ]
-
-Available exits: east south 
-
-> go east
-
-You travel east...
-
-orange room:
-You are You are in a toy room overcrowded with dolls that whisper when you are not looking.
-Items: doll music box 
-
-                    [ N ]
-                      |
-          [ W ] ------+------ [ E ]
-                      |
-                    [ S ]
-
-Available exits: north west down 
-
-> go north
-
-You travel north...
-
-red room:
-You are You are in the Card Throne, where playing card guards stand at attention.
-Items: card crown red card 
-
-                    [ N ]
-                      |
-          [ W ] ------+------ [ E ]
-                      |
-                    [ S ]
-
-Available exits: east south 
-
-> 
-I don't know what you mean...
-> ridde queen of hearts
-I don't know what you mean...
-> riddle quenn of hearts
+> riddle legriddler
 That person is not here.
-> riddle queen of hearts
-That person is not here.
-> riddle queenofhearts
-That person is not here.
-> go south 
-
-You travel south...
-
-orange room:
-You are You are in a toy room overcrowded with dolls that whisper when you are not looking.
-Items: doll music box 
-
-                    [ N ]
-                      |
-          [ W ] ------+------ [ E ]
-                      |
-                    [ S ]
-
-Available exits: north west down 
-
-> go north 
-
-You travel north...
-
-red room:
-You are You are in the Card Throne, where playing card guards stand at attention.
-Items: card crown red card 
-
-                    [ N ]
-                      |
-          [ W ] ------+------ [ E ]
-                      |
-                    [ S ]
-
-Available exits: east south 
-
-> take red card
-You don't see that item.
+> go back 
+There is no door to the back!
+Available exits: up
 > 
