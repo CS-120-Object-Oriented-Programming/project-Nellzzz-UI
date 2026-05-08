@@ -1,21 +1,5 @@
 package edu.kings;
 import java.util.HashMap;
-/**
- * Class Room - a room in an adventure game.
- *
- * This class is part of the "Campus of Kings" application. "Campus of Kings" is a
- * very simple, text based adventure game.
- *
- * A "Room" represents one location in the scenery of the game. It is connected
- * to other rooms via doors. The doors are labeled north, east, south, west.
- * For each direction, the room stores a reference to an instance of door.
- *
- * @author Maria Jump
- * @version 2015.02.01
- *
- * Used with permission from Dr. Maria Jump at Northeastern University
- */
-
 
 public class Room {
 	
@@ -25,15 +9,26 @@ public class Room {
 	private final String name;
 	/** The description of this room. */
 	private final String description;
-
-	private final HashMap<String, Door> exits;
 	private final HashMap<String, Item> items;
 
+	private HashMap<String, Door> exits = new HashMap<>();
+
+
+
+public String getItemsString() {
+    if (items.isEmpty()) return "There is nothing special here.";
+    return "You see: " + String.join(", ", items.keySet());
+}
+
+/**
+ * Stores an exit for this room.
+ */
+	
 
 	/**
 	 * Static initializer.
 	 */
-	static {
+	public static void staticInitializer() {
 		counter = 0;
 	}
 	/**

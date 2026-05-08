@@ -71,8 +71,11 @@ public class World {
 
 		Room purpleRoom = new Room("purple room", "You are in a purple kitchen that smells of burnt pepper. A treasure chest sits on the table, and a Cheshire Cat grins from atop it!");
 		addRoom(purpleRoom);
+		
 
-		Room blueRoom = new Room("blue room", "You are in a room filled with ticking clocks. Clockwork animals move around you.");
+		Room blueRoom = new Room("blue room", "You are in a room filled with ticking clocks. Dust and cobwebs sowing them down overtime."
+			+ " What that out the conner of the room?! A white tail is visible under one of the tall clocks. The white Rabbit is there!"
+		);
 		addRoom(blueRoom);
 
 		Room yellowRoom = new Room("yellow room", "You are in a room with a floor of quicksand. It pulls at your feet with each step.");
@@ -207,7 +210,7 @@ public class World {
 		rooms.get("mirror chamber").addItem(candle);
 
 		// Purple Room items
-		Item drinkMe = new Item("Drink Me", "A bottle labeled 'DRINK ME!' in elegant script", 10, 0.1);
+		Item drinkMe = new Item("DrinkMe", "A bottle labeled 'DRINK ME!' in elegant script", 10, 0.1);
 		rooms.get("purple room").addItem(drinkMe);
 
 		Item floorboard = new Item("Floorboard", "A loose wooden floorboard. Something is hidden beneath...", 0, 0.1);
@@ -218,10 +221,11 @@ public class World {
 		Item matches = new Item("Matches", "A box of damp matches that can be used to light a candle", 0, 0.5);
 		treasureChest.addItem(matches);
 		rooms.get("purple room").addItem(treasureChest);
+		rooms.get("purple room").addItem(matches);
 
 		// Blue Room items
-		Item silverKey = new Item("Silver Key", "A worn but gleaming silver key. Wonder when it was last used?", 15, 0.1);
-		Item pocketWatch = new Item("Pocket Watch", "A pocket watch that ticks backwards", 10, 0.1);
+		Item silverKey = new Item("SilverKey", "A worn but gleaming silver key. Wonder when it was last used?", 15, 0.1);
+		Item pocketWatch = new Item("PocketWatch", "A pocket watch that ticks backwards", 10, 0.1);
 		Item compass = new Item("Compass", "A compass that points in the wrong direction. Rather unfortunate.", 5, 0.5);
 		rooms.get("blue room").addItem(silverKey);
 		rooms.get("blue room").addItem(pocketWatch);

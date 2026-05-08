@@ -5,6 +5,7 @@ public class NPC {
     private String riddle;
     private String correctAnswer;
     private final int sanityLoss;
+    private String[] options;
     private boolean solved;
     private String npcType;
 
@@ -16,8 +17,10 @@ public class NPC {
         this.riddle = riddle;
         this.correctAnswer = correctAnswer;
         this.sanityLoss = sanityLoss;
+        this.options = new String[4];
         this.npcType = npcType;
         this.solved = false; 
+        
     }
 
     public NPC(String name, int sanityLoss) {
@@ -25,6 +28,10 @@ public class NPC {
         this.sanityLoss = sanityLoss;
     }
 
+    //option
+    public String[] getOptions() {
+        return options;
+    }
     // npc name 
     public String getName() {
         return name;

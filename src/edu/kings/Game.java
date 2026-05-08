@@ -38,17 +38,17 @@ public class Game {
 	private void createNPCs() {
 		NPC cheshireCat = new NPC(
 			"Cheshire Cat",
-			"I fade in and out of reality. What must you do to see me clearly?",
-			"camera",
+			"I am not myself for im a picture of that self not in myself. What am I?, camera + mirror + image + itself",
+			"b",
 			5,
-			"camera"
+			"Cheshire Cat"
 		);
 		npcs.put("cheshirecat", cheshireCat);
 
 		NPC whiteRabbit = new NPC(
 			"White Rabbit",
-			"I run through time itself. What do you need to catch me?",
-			"time",
+			"I run through time itself, But i always seem to try to be beside my Timly clock.But could never Gain The lively clock. Its odd my calender has the right date. MMXXVI+1 + MMV-1 + 2+MMXXVI + 2-MMV",
+			"d",
 			5,
 			"keyboard"
 		);
@@ -98,6 +98,15 @@ public class Game {
 			"standard"
 		);
 		npcs.put("tweedledee", tweedleDee);
+
+		NPC queenOfHearts = new NPC(
+			"Queen of Hearts",
+			"Who is the true ruler of this twisted world?",
+			"queen",
+			5,
+			"standard"
+		);
+		npcs.put("queenofhearts", queenOfHearts);
 	}
 
 	/**
@@ -392,29 +401,29 @@ public class Game {
 		Writer.println("╚════════════════════════════════════════════════════════╝");
 		Writer.println();
 		Writer.println("Movement:");
-		Writer.println("  go <direction>       - Move in a direction (north, south, east, west)");
+		Writer.println("  go 			        - Move in a direction (north, south, east, west)");
 		Writer.println("  back                 - Return to the previous room");
 		Writer.println();
 		Writer.println("Exploration:");
 		Writer.println("  look                 - Examine the current room");
-		Writer.println("  examine <item>       - Look closely at an item");
+		Writer.println("  examine 		        - Look closely at an item");
 		Writer.println();
 		Writer.println("Inventory:");
 		Writer.println("  inventory            - Show what you're carrying");
-		Writer.println("  take <item>          - Pick up an item");
-		Writer.println("  drop <item>          - Drop an item");
+		Writer.println("  take                 - Pick up an item");
+		Writer.println("  drop                 - Drop an item");
 		Writer.println();
 		Writer.println("Containers:");
-		Writer.println("  pack <item> in <container>     - Store an item");
-		Writer.println("  unpack <item> from <container> - Retrieve an item");
+		Writer.println("  pack        in               - Store an item");
+		Writer.println("  unpack      from             - Retrieve an item");
 		Writer.println();
 		Writer.println("Doors:");
-		Writer.println("  lock <direction>     - Lock a door");
-		Writer.println("  unlock <direction>   - Unlock a door with a key");
+		Writer.println("  lock                 - Lock a door");
+		Writer.println("  unlock               - Unlock a door with a key");
 		Writer.println();
 		Writer.println("Consumables:");
-		Writer.println("  drink <item>         - Drink a potion (resize yourself)");
-		Writer.println("  eat <item>           - Eat food (resize yourself)");
+		Writer.println("  drink                - Drink a potion (resize yourself)");
+		Writer.println("  eat                  - Eat food (resize yourself)");
 		Writer.println();
 		Writer.println("NPCs:");
 		Writer.println("  riddle <npc>         - Talk to an NPC and solve their riddle");
@@ -453,13 +462,13 @@ public class Game {
 		
 		Writer.println();
 		Writer.println("╔════════════════════════════════════════════════════════╗");
-		Writer.println("║                    Welcome, " + padString(name, 35) + "║");
+		Writer.println("║                    Welcome, " + padString(name, 35) +   "║");
 		Writer.println("╚════════════════════════════════════════════════════════╝");
 		Writer.println();
 		Writer.println("Sanity Meter: " + player.getSanity() + "/100");
 		Writer.println("Current Size: " + player.getSize());
 		Writer.println();
-		Writer.println("You stand in the Mirror Chamber, facing an ornate mirror.");
+		Writer.println("You stand in the Mirror Chamber, facing an gimmering mirror.");
 		Writer.println();
 	}
 	/**
@@ -858,9 +867,10 @@ public class Game {
 			Writer.println(npc.getName() + " has nothing more to say.");
 			return;
 		}
+		
 
 		Writer.println();
-		Writer.println("► " + npc.getName() + " gazes at you with an uncanny smile...");
+		Writer.println("► " + npc.getName() + " gazes at you with a curious expression...");
 		Writer.println();
 		Writer.println(npc.getRiddle());
 		Writer.println();
