@@ -1,40 +1,34 @@
 package edu.kings;
-/**
- * Class Room - a room in an adventure game.
- *
- * This class is part of the "Campus of Kings" application. "Campus of Kings" is a
- * very simple, text based adventure game.
- *
- * A "Room" represents one location in the scenery of the game. It is connected
- * to other rooms via doors. The doors are labeled north, east, south, west.
- * For each direction, the room stores a reference to an instance of door.
- *
- * @author Maria Jump
- * @version 2015.02.01
- *
- * Used with permission from Dr. Maria Jump at Northeastern University
- */
+import java.util.HashMap;
+
 public class Room {
+	
 	/** Counter for the total number of rooms created in the world. */
 	private static int counter;
 	/** The name of this room.  Room names should be unique. */
-	private String name;
+	private final String name;
 	/** The description of this room. */
-	private String description;
+	private final String description;
+	private final HashMap<String, Item> items;
 
-	/** This room's north exit, null if none exits. */
-	public Door northExit;
-	/** This room's south exit, null if none exits. */
-	public Door southExit;
-	/** This room's east exit, null if none exits. */
-	public Door eastExit;
-	/** This room's west exit, null if none exits. */
-	public Door westExit;
+	private HashMap<String, Door> exits = new HashMap<>();
+
+
+
+public String getItemsString() {
+    if (items.isEmpty()) return "There is nothing special here.";
+    return "You see: " + String.join(", ", items.keySet());
+}
+
+/**
+ * Stores an exit for this room.
+ */
+	
 
 	/**
 	 * Static initializer.
 	 */
-	static {
+	public static void staticInitializer() {
 		counter = 0;
 	}
 	/**
@@ -48,6 +42,8 @@ public class Room {
 	public Room(String name, String description) {
 		this.name = name;
 		this.description = description;
+		exits = new HashMap<>();
+		items = new HashMap<>();
 		counter++;
 	}
 
@@ -75,5 +71,72 @@ public class Room {
 	 */
 	public static int getCounter() {
 		return counter;
+	}
+	public void setExit(String direction, Door neighbor) {
+		exits.put(direction, neighbor);
+	}
+	public Door getExit(String direction) {
+		return exits.get(direction);
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder result = new StringBuilder();
+		result.append(name).append(":\n");
+		result.append("You are ").append(description).append("\n");
+		
+		if (!items.isEmpty()) {
+			result.append("Items: ");
+			for (String itemName : items.keySet()) {
+				result.append(itemName).append(" ");
+			}
+			result.append("\n");
+		}
+		
+		// Show compass with available exits
+		if (!exits.isEmpty()) {
+			result.append("\n");
+			result.append("                    [ N ]\n");
+			result.append("                      |\n");
+			result.append("          [ W ] ------+------ [ E ]\n");
+			result.append("                      |\n");
+			result.append("                    [ S ]\n\n");
+			result.append("Available exits: ");
+			for (String direction : exits.keySet()) {
+				result.append(direction).append(" ");
+			}
+			result.append("\n");
+		}
+		
+		return result.toString();
+	}
+
+	/**
+	 * Adds an item to the room.
+	 *
+	 * @param item The item to add.
+	 */
+	public void addItem(Item item) {
+		items.put(item.getName().toLowerCase(), item);
+	}
+
+	/**
+	 * Gets an item from the room by name.
+	 *
+	 * @param name The name of the item.
+	 * @return The item or null if not found.
+	 */
+	public Item getItem(String name) {
+		return items.get(name.toLowerCase());
+	}
+
+	/**
+	 * Removes an item from the room by name.
+	 *
+	 * @param name The name of the item to remove.
+	 * @return The item that was removed or null if not found.
+	 */
+	public Item removeItem(String name) {
+		return items.remove(name.toLowerCase());
 	}
 }

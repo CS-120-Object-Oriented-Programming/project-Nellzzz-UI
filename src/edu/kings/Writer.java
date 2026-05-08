@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-
 import javax.swing.JFileChooser;
 import javax.swing.JTextPane;
 import javax.swing.text.BadLocationException;
@@ -220,21 +219,19 @@ public class Writer {
 	 * Copy the default log.
 	 */
 	public static void copyDefaultLog() {
-		Scanner input = null;
-		BufferedWriter output = null;
+
 		try {
 			JFileChooser chooser = new JFileChooser();
 			chooser.setCurrentDirectory(new File("."));
 			int result = chooser.showOpenDialog(null);
 			if (result == JFileChooser.APPROVE_OPTION) {
-				input = new Scanner(new File(DEFAULT_LOG));
-				output = new BufferedWriter(new FileWriter(chooser.getSelectedFile(), false));
-				while (input.hasNextLine()) {
-					String line = input.nextLine();
-					output.write(line + NEW_LINE);
+				try (Scanner input = new Scanner(new File(DEFAULT_LOG));
+					 BufferedWriter output = new BufferedWriter(new FileWriter(chooser.getSelectedFile(), false))) {
+					while (input.hasNextLine()) {
+						String line = input.nextLine();
+						output.write(line + NEW_LINE);
+					}
 				}
-				output.close();
-				input.close();
 			}
 		} catch (FileNotFoundException exception) {
 			System.err.println("ERROR: default log file cannot be found");

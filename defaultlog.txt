@@ -1,0 +1,269 @@
+
+╔════════════════════════════════════════════════════════╗
+║   WELCOME TO ALEX'S TWISTED WONDERLAND                 ║
+║   A Text-Based Adventure Through Madness               ║
+╚════════════════════════════════════════════════════════╝
+
+You wake up in front of a strange mirror. Nothing seems right.
+The air is thick with mystery and your reflection stares back
+With unsettling wonder...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+But first... what is your name, brave traveler? go north 
+
+╔════════════════════════════════════════════════════════╗
+║                    Welcome,              go north              ║
+╚════════════════════════════════════════════════════════╝
+
+Sanity Meter: 100/100
+Current Size: normal
+
+You stand in the Mirror Chamber, facing an gimmering mirror.
+
+
+Press ENTER to begin the tutorial demo...
+
+
+╔════════════════════════════════════════════════════════╗
+║                  QUICK COMMAND DEMO                    ║
+╚════════════════════════════════════════════════════════╝
+
+Let me show you what you can do in this twisted world...
+
+[Demo 1/10] Examining your current location with LOOK:
+>look
+mirror chamber:
+You are You stand before an ornate mirror. Your reflection stares back, but something feels... wrong.
+Items: candle 
+
+                    [ N ]
+                      |
+          [ W ] ------+------ [ E ]
+                      |
+                    [ S ]
+
+Available exits: north 
+
+
+[Demo 2/10] Checking your status:
+> status
+
+╔════════════════════════════════════════════════════════╗
+║                      YOUR STATUS                       ║
+╚════════════════════════════════════════════════════════╝
+  Name:     go north 
+  Sanity:   100/100
+  Size:     normal
+  Score:    0
+  Turns:    0
+╔════════════════════════════════════════════════════════╗
+
+
+mirror chamber:
+You are You stand before an ornate mirror. Your reflection stares back, but something feels... wrong.
+Items: candle 
+
+                    [ N ]
+                      |
+          [ W ] ------+------ [ E ]
+                      |
+                    [ S ]
+
+Available exits: north 
+
+
+[Demo 3/10] Checking your inventory:
+> inventory
+You are not carrying anything.
+
+[Demo 4/10] Checking your score:
+> score
+Your score is: 0
+
+[Demo 5/10] Checking turn count:
+> turns
+You have taken 0 turns.
+
+[Demo 6/10] Examining an item in the room (candle):
+> examine candle
+You examine the Candle.
+A white candle that flickers without reason
+
+[Demo 7/10] Taking an item from the room:
+> take candle
+You take the Candle.
+
+[Demo 8/10] Moving to another room (north):
+> go north
+purple room:
+You are You are in a purple kitchen that smells of burnt pepper. A treasure chest sits on the table, and a Cheshire Cat grins from atop it!
+Items: drinkme chest floorboard matches 
+
+                    [ N ]
+                      |
+          [ W ] ------+------ [ E ]
+                      |
+                    [ S ]
+
+Available exits: east south down 
+
+
+[Demo 9/10] Using BACK command (if you've moved):
+> back
+(Demonstrating - you would return to previous room)
+
+[Demo 10/10] Getting help with available commands:
+> help
+
+AVAILABLE COMMANDS:
+Movement: go <dir>, back
+Exploration: look, examine <item>, help
+Inventory: inventory, take <item>, drop <item>
+Containers: pack <item> in <container>, unpack <item> from <container>
+Doors: lock <direction>, unlock <direction>
+Items: drink <item>, eat <item>
+NPCs: riddle <npc>
+Status: status, score, turns
+Other: quit
+
+
+╔════════════════════════════════════════════════════════╗
+║              Demo Complete! Now go explore!            ║
+║    Solve riddles, find items, and escape this world!   ║
+╚════════════════════════════════════════════════════════╝
+
+Type your first command and press ENTER:
+
+> 
+I don't know what you mean...
+> 
+I don't know what you mean...
+> 
+I don't know what you mean...
+> 
+I don't know what you mean...
+> go north 
+
+You travel north...
+
+purple room:
+You are You are in a purple kitchen that smells of burnt pepper. A treasure chest sits on the table, and a Cheshire Cat grins from atop it!
+Items: drinkme chest floorboard matches 
+
+                    [ N ]
+                      |
+          [ W ] ------+------ [ E ]
+                      |
+                    [ S ]
+
+Available exits: east south down 
+
+> go down 
+
+You travel down...
+
+hidden cellar:
+You are You are in a small hidden cellar beneath the kitchen. It smells of earth and secrets. You see Leg Riddler
+Items: crystal 
+
+                    [ N ]
+                      |
+          [ W ] ------+------ [ E ]
+                      |
+                    [ S ]
+
+Available exits: up 
+
+> riddle the leg riddler
+That person is not here.
+> riddlelegriddler
+I don't know what you mean...
+> riddle legriddler
+That person is not here.
+> back
+purple room:
+You are You are in a purple kitchen that smells of burnt pepper. A treasure chest sits on the table, and a Cheshire Cat grins from atop it!
+Items: drinkme chest floorboard matches 
+
+                    [ N ]
+                      |
+          [ W ] ------+------ [ E ]
+                      |
+                    [ S ]
+
+Available exits: east south down 
+
+> go es\ast
+There is no door to the es\ast!
+Available exits: south, east, down
+> go east
+
+You travel east...
+
+blue room:
+You are You are in a room filled with ticking clocks. Dust and cobwebs sowing them down overtime. What that out the conner of the room?! A white tail is visible under one of the tall clocks. The white Rabbit is there!
+Items: pocketwatch compass silverkey 
+
+                    [ N ]
+                      |
+          [ W ] ------+------ [ E ]
+                      |
+                    [ S ]
+
+Available exits: north west down 
+
+> riddle the white rabbit
+That person is not here.
+> riddle white rabbit
+
+► White Rabbit gazes at you with a curious expression...
+
+I run through time itself, But i always seem to try to be beside my Timly clock.But could never Gain The lively clock. Its odd my calender has the right date. MMXXVI+1 + MMV-1 + 2+MMXXVI + 2-MMV
+
+What is your answer?
+(A) First option
+(B) Second option
+(C) Third option
+(D) Fourth option
+
+Your choice (A/B/C/D): back
+
+✗ White Rabbit smiles wickedly. That's not right...
+Sanity -5
+
+> back
+purple room:
+You are You are in a purple kitchen that smells of burnt pepper. A treasure chest sits on the table, and a Cheshire Cat grins from atop it!
+Items: drinkme chest floorboard matches 
+
+                    [ N ]
+                      |
+          [ W ] ------+------ [ E ]
+                      |
+                    [ S ]
+
+Available exits: east south down 
+
+> go down
+
+You travel down...
+
+hidden cellar:
+You are You are in a small hidden cellar beneath the kitchen. It smells of earth and secrets. You see Leg Riddler
+Items: crystal 
+
+                    [ N ]
+                      |
+          [ W ] ------+------ [ E ]
+                      |
+                    [ S ]
+
+Available exits: up 
+
+> riddle legriddler
+That person is not here.
+> go back 
+There is no door to the back!
+Available exits: up
+> 

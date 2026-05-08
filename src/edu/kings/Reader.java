@@ -23,7 +23,7 @@ import java.util.Scanner;
  */
 public class Reader {
 	/** The source of command input. */
-	private static Scanner reader;
+	private static final Scanner reader;
 
 	/**
 	 * Create a parser to read from the terminal window.
@@ -46,48 +46,38 @@ public class Reader {
         inputLine = reader.nextLine().toLowerCase();
         Writer.printInput(inputLine);
 
-        // Find up to two words on the line.
-        Scanner tokenizer = new Scanner(inputLine);
-        if (tokenizer.hasNext()) {
-            word1 = tokenizer.next(); // get first word
+        try (// Find up to two words on the line.
+        Scanner tokenizer = new Scanner(inputLine)) {
             if (tokenizer.hasNext()) {
-            	restOfLine = new ArrayList<String>();
-            	while(tokenizer.hasNext()) {
-            		restOfLine.add(tokenizer.next());
-            	}
+                word1 = tokenizer.next(); // get first word
+                if (!CommandWords.isCommand(word1)) {
+                    word1 = null;
+                }
+            }
+            
+            if (tokenizer.hasNext()) {
+                restOfLine = new ArrayList<>();
+                while (tokenizer.hasNext()) {
+                    restOfLine.add(tokenizer.next());
+                
+                }
             }
         }
-        tokenizer.close();
+        CommandEnum cmdEnum = word1 != null ? CommandWords.getCommand(word1) : null;
+        Command command = new Command(cmdEnum);
 
-        // Now check whether this word is known. If so, create a command
-        // with it. If not, create a "null" command (for unknown command).
-        Command result = null;
-        if (CommandWords.isCommand(word1)) {
-            result = new Command(word1, restOfLine);
+        if (restOfLine != null) {
+            for (String word : restOfLine) {
+                command.addRestOfLine(word);
+            }
         }
-        else {
-            result = new Command(null, restOfLine);
-        }
-        return result;
-    }
+        return command;
+     }
 
-    /**
-     * Return the response to a question in all lower case.
-     *
-     * @return The response typed in by the user.
-     */
     public static String getResponse() {
-    	return getResponseKeepCase().toLowerCase();
+       String response = reader.nextLine();
+       Writer.printInput(response);
+       return response;
+    }
     }
 
-    /**
-     * Return the response to a question in the case used by the player.
-     *
-     * @return The response typed in by the user.
-     */
-    public static String getResponseKeepCase() {
-        String response = reader.nextLine().trim();
-        Writer.printInput(response);
-        return response;
-    }
-}
