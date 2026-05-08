@@ -20,22 +20,24 @@ public class CommandWords {
 	 * Static block to initialize the fields of CommandWords.
 	 */
 	static {
-		CommandEnum[] tempCommands = {CommandEnum.GO,
+		CommandEnum[] tempCommands = {
+			CommandEnum.GO,
 			CommandEnum.QUIT,
 			CommandEnum.HELP,
 			CommandEnum.LOOK,
 			CommandEnum.STATUS,
 			CommandEnum.BACK,
 			CommandEnum.DROP,
-			CommandEnum.EXAMINE,
 			CommandEnum.INVENTORY,
 			CommandEnum.TAKE,
+			CommandEnum.EXAMINE,
 			CommandEnum.SCORE,
 			CommandEnum.TURNS,
 			CommandEnum.LOCK,
 			CommandEnum.UNLOCK,
-			CommandEnum.PACK,
-			CommandEnum.UNPACK
+			CommandEnum.DRINK,
+			CommandEnum.EAT,
+			CommandEnum.RIDDLE
 		};
 		validCommands = tempCommands;
 	}

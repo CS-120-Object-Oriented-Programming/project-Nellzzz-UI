@@ -81,7 +81,17 @@ public class Command {
 		if (restOfLine.isEmpty()) {
 			return null;
 		}
-		return restOfLine.get(0);
+		
+	StringBuilder results = new StringBuilder();
+
+		for (int i = 0; i < restOfLine.size(); i++) {
+			results.append(restOfLine.get(i));
+
+			if (i < restOfLine.size() -1) {
+				// result string is complete
+			}
+		}
+		return results.toString();
 	}
 
 	/**

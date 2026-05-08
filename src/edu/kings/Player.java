@@ -16,7 +16,7 @@ public class Player {
     private static final int MAX_SANITY = 100;
     private static final int MIN_SANITY = 0;
     private static final double MAX_CARRY_WEIGHT = 50.0;
-    private HashMap<String, Item> inventory;
+    private final HashMap<String, Item> inventory;
     private double currentWeight;
     private String playerSize;
     private String playerName;
@@ -31,7 +31,7 @@ public class Player {
         this.turns = 0;
         this.turns = 0;
         this.sanity = MAX_SANITY;
-        this.inventory = new HashMap<String, Item>();
+        this.inventory = new HashMap<>();
         this.currentWeight = 0;
         this.playerSize = "normal";
         this.playerName = "Alex";//Defaut can be changed 

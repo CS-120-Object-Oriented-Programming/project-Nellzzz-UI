@@ -15,12 +15,9 @@ public enum CommandEnum{
     TURNS("turns"),
     LOCK("lock"),
     UNLOCK("unlock"),
-    PACK("pack"),
-    UNPACK("unpack"),
     DRINK("drink"),
     EAT("eat"),
-    RIDDLE("riddle"),
-    STATUS_REPORT("status");
+    RIDDLE("riddle");
 
     private final String text;
 

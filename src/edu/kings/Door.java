@@ -17,7 +17,7 @@ package edu.kings;
 public class Door {
 
 	/** The room that this door leads to. */
-	private Room destination;
+	private final Room destination;
 	/** Whether this door is locked. */
 	private boolean locked;
 	/** The key required to unlock this door (null if no key needed). */

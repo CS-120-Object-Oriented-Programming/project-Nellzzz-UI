@@ -6,7 +6,7 @@ import java.util.HashMap;
  * A Container is an Item that can hold other items.
  */
 public class Container extends Item {
-    private HashMap<String, Item> contents;
+    private final HashMap<String, Item> contents;
 
     /**
      * Constructor for Container.
@@ -18,7 +18,7 @@ public class Container extends Item {
      */
     public Container(String name, String description, int points, double weight) {
         super(name, description, points, weight);
-        contents = new HashMap<String, Item>();
+        contents = new HashMap<>();
     }
 
     /**

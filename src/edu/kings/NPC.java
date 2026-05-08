@@ -1,10 +1,10 @@
 package edu.kings;
 
 public class NPC {
-    private String name;
+    private final String name;
     private String riddle;
     private String correctAnswer;
-    private int sanityLoss;
+    private final int sanityLoss;
     private boolean solved;
     private String npcType;
 
@@ -18,6 +18,11 @@ public class NPC {
         this.sanityLoss = sanityLoss;
         this.npcType = npcType;
         this.solved = false; 
+    }
+
+    public NPC(String name, int sanityLoss) {
+        this.name = name;
+        this.sanityLoss = sanityLoss;
     }
 
     // npc name 

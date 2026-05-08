@@ -5,9 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.io.InputStream;
 import java.io.IOException;
-
+import java.io.InputStream;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -39,9 +38,9 @@ public class Main extends JFrame implements ActionListener {
 	private JScrollPane outputScrollPane;
 
 	/** The save log menu item. */
-	private JMenuItem saveItem;
+	private final JMenuItem saveItem;
 	/** The exit menu item. */
-	private JMenuItem exitItem;
+	private final JMenuItem exitItem;
 
 	/** The game instance. */
 	private Game game;
@@ -69,6 +68,7 @@ public class Main extends JFrame implements ActionListener {
 		exitItem.addActionListener(this);
 		fileMenu.add(exitItem);
 
+
 		// Setting out the output area
 		JTextPane output = new JTextPane();
 		outputScrollPane = new JScrollPane(output);
@@ -77,6 +77,7 @@ public class Main extends JFrame implements ActionListener {
 		outputScrollPane.setPreferredSize(outputSize);
 		// So that the scroll pane will resize when the window is resized
 		addComponentListener(new ComponentAdapter() {
+		@Override
 			public void componentResized(ComponentEvent e) {
 				Dimension outputSize = new Dimension();
 				outputSize.setSize(getContentPane().getWidth(), getContentPane().getHeight() - 100);
@@ -153,7 +154,7 @@ public class Main extends JFrame implements ActionListener {
 	private class TextFieldStreamer extends InputStream implements ActionListener {
 
 		/** The JTextField to use for input. */
-		private JTextField textField;
+		private final JTextField textField;
 
 		/** The string of text that being passed as input. */
 		private String text;

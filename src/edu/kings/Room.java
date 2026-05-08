@@ -1,6 +1,5 @@
 package edu.kings;
 import java.util.HashMap;
-import java.util.Set;
 /**
  * Class Room - a room in an adventure game.
  *
@@ -27,8 +26,8 @@ public class Room {
 	/** The description of this room. */
 	private final String description;
 
-	private HashMap<String, Door> exits;
-	private HashMap<String, Item> items;
+	private final HashMap<String, Door> exits;
+	private final HashMap<String, Item> items;
 
 
 	/**
@@ -48,8 +47,8 @@ public class Room {
 	public Room(String name, String description) {
 		this.name = name;
 		this.description = description;
-		exits = new HashMap<String, Door>();
-		items = new HashMap<String, Item>();
+		exits = new HashMap<>();
+		items = new HashMap<>();
 		counter++;
 	}
 
@@ -99,11 +98,21 @@ public class Room {
 			result.append("\n");
 		}
 		
-		result.append("Exits: ");
-		for (String direction : exits.keySet()) {
-			result.append(direction).append(" ");
+		// Show compass with available exits
+		if (!exits.isEmpty()) {
+			result.append("\n");
+			result.append("                    [ N ]\n");
+			result.append("                      |\n");
+			result.append("          [ W ] ------+------ [ E ]\n");
+			result.append("                      |\n");
+			result.append("                    [ S ]\n\n");
+			result.append("Available exits: ");
+			for (String direction : exits.keySet()) {
+				result.append(direction).append(" ");
+			}
+			result.append("\n");
 		}
-		result.append("\n");
+		
 		return result.toString();
 	}
 

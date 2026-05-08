@@ -27,7 +27,7 @@ public class Game {
 	 */
 	public Game() {
 		world = new World();
-		player = new Player(world.getRoom("mirrorchamber"));
+		player = new Player(world.getRoom("mirror chamber"));
 		npcs = new HashMap<>();
 		createNPCs();
 	}
@@ -105,6 +105,12 @@ public class Game {
 	 */
 	public void play() {
 		printWelcome();
+		
+		Writer.println();
+		Writer.println("Press ENTER to begin the tutorial demo...");
+		Reader.getResponse(); // Wait for player to press enter
+		
+		runDemo();
 
 		// Enter the main game loop. Here we repeatedly read commands and
 		// execute them until the game is over.
@@ -115,6 +121,115 @@ public class Game {
 			
 		}
 		printGoodbye();
+	}
+
+	/**
+	 * Run an interactive demo showcasing all available commands
+	 */
+	private void runDemo() {
+		Writer.println();
+		Writer.println("╔════════════════════════════════════════════════════════╗");
+		Writer.println("║                  QUICK COMMAND DEMO                    ║");
+		Writer.println("╚════════════════════════════════════════════════════════╝");
+		Writer.println();
+		Writer.println("Let me show you what you can do in this twisted world...");
+		Writer.println();
+		
+		// DEMO 1: LOOK command
+		Writer.println("[Demo 1/10] Examining your current location with LOOK:");
+		Writer.println(">look");
+		printLocationInformation();
+		Writer.println();
+		
+		// DEMO 2: STATUS command
+		Writer.println("[Demo 2/10] Checking your status:");
+		Writer.println("> status");
+		status();
+		Writer.println();
+		
+		// DEMO 3: INVENTORY command
+		Writer.println("[Demo 3/10] Checking your inventory:");
+		Writer.println("> inventory");
+		showInventory();
+		Writer.println();
+		
+		// DEMO 4: SCORE command
+		Writer.println("[Demo 4/10] Checking your score:");
+		Writer.println("> score");
+		showScore();
+		Writer.println();
+		
+		// DEMO 5: TURNS command
+		Writer.println("[Demo 5/10] Checking turn count:");
+		Writer.println("> turns");
+		showTurns();
+		Writer.println();
+		
+		// DEMO 6: EXAMINE command
+		Writer.println("[Demo 6/10] Examining an item in the room (candle):");
+		Writer.println("> examine candle");
+		Item candle = player.getCurrentRoom().getItem("candle");
+		if (candle != null) {
+			Writer.println("You examine the " + candle.getName() + ".");
+			Writer.println(candle.getDescription());
+		} else {
+			Writer.println("(No candle found in this room)");
+		}
+		Writer.println();
+		
+		// DEMO 7: TAKE command
+		Writer.println("[Demo 7/10] Taking an item from the room:");
+		Writer.println("> take candle");
+		if (player.getCurrentRoom().getItem("candle") != null) {
+			Item item = player.getCurrentRoom().removeItem("candle");
+			player.addItem(item);
+			Writer.println("You take the " + item.getName() + ".");
+		}
+		Writer.println();
+		
+		// DEMO 8: GO command
+		Writer.println("[Demo 8/10] Moving to another room (north):");
+		Writer.println("> go north");
+		Door doorway = player.getCurrentRoom().getExit("north");
+		if (doorway != null) {
+			Room newRoom = doorway.getDestination();
+			Room oldRoom = player.getCurrentRoom();
+			player.setCurrentRoom(newRoom);
+			Writer.println(newRoom.toString());
+			player.setCurrentRoom(oldRoom);
+		}
+		Writer.println();
+		
+		// DEMO 9: BACK command
+		Writer.println("[Demo 9/10] Using BACK command (if you've moved):");
+		Writer.println("> back");
+		Writer.println("(Demonstrating - you would return to previous room)");
+		Writer.println();
+		
+		// DEMO 10: HELP command
+		Writer.println("[Demo 10/10] Getting help with available commands:");
+		Writer.println("> help");
+		Writer.println();
+		Writer.println("AVAILABLE COMMANDS:");
+		Writer.println("Movement: go <dir>, back");
+		Writer.println("Exploration: look, examine <item>, help");
+		Writer.println("Inventory: inventory, take <item>, drop <item>");
+		Writer.println("Containers: pack <item> in <container>, unpack <item> from <container>");
+		Writer.println("Doors: lock <direction>, unlock <direction>");
+		Writer.println("Items: drink <item>, eat <item>");
+		Writer.println("NPCs: riddle <npc>");
+		Writer.println("Status: status, score, turns");
+		Writer.println("Other: quit");
+		Writer.println();
+		
+		Writer.println();
+		Writer.println("╔════════════════════════════════════════════════════════╗");
+		Writer.println("║              Demo Complete! Now go explore!            ║");
+		Writer.println("║    Solve riddles, find items, and escape this world!   ║");
+		Writer.println("╚════════════════════════════════════════════════════════╝");
+		Writer.println();
+		Writer.println("Type your first command and press ENTER:");
+		Writer.println();
 	}
 
 	/**
@@ -194,12 +309,6 @@ public class Game {
 			case UNLOCK:
 				unlock(command);
 				break;
-			case PACK:
-				pack(command);
-				break;
-			case UNPACK:
-				unpack(command);
-				break;
 			case DRINK:
 				drink(command);
 				break;
@@ -227,20 +336,25 @@ public class Game {
 	 *            The command to be processed.
 	 */
 	private void goRoom(Command command) {
-		if (!command.hasSecondWord()) {
+    if (!command.hasSecondWord()) {
+        Writer.println("Go where? Use: north, south, east, west (or up/down for elevator)");
+        return;
 			// if there is no second word, we don't know where to go...
-			Writer.println("Go where?");
 		} else {
-			String direction = command.getRestOfLine();
+			String direction = command.getRestOfLine().toLowerCase();
 
 			// Try to leave current.
 			Door doorway = player.getCurrentRoom().getExit(direction);
 
 			if (doorway == null) {
-				Writer.println("There is no door!");
+				Writer.println("There is no door to the " + direction + "!");
+				Writer.println("Available exits: " + getAvailableExits());
 			} else {
 				Room newRoom = doorway.getDestination();
 				player.setCurrentRoom(newRoom);
+				Writer.println();
+				Writer.println("You travel " + direction + "...");
+				Writer.println();
 				Writer.println(newRoom.toString());
 		}
 	}
@@ -328,39 +442,41 @@ public class Game {
 		Writer.println();
 		Writer.println("You wake up in front of a strange mirror. Nothing seems right.");
 		Writer.println("The air is thick with mystery and your reflection stares back");
-		Writer.println("at you with an uncanny smile...");
+		Writer.println("With unsettling wonder...");
 		Writer.println();
 		Writer.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 		Writer.println();
 		
-		Writer.println("But first... what is your name, brave traveler?");
+		Writer.print("But first... what is your name, brave traveler? ");
 		String name = Reader.getResponse();
 		player.setPlayerName(name);
 		
 		Writer.println();
-		Writer.println("Welcome, " + name + "!");
+		Writer.println("╔════════════════════════════════════════════════════════╗");
+		Writer.println("║                    Welcome, " + padString(name, 35) + "║");
+		Writer.println("╚════════════════════════════════════════════════════════╝");
 		Writer.println();
-		Writer.println("Your sanity meter: " + player.getSanity() + "/100");
-		Writer.println("Current size: " + player.getSize());
+		Writer.println("Sanity Meter: " + player.getSanity() + "/100");
+		Writer.println("Current Size: " + player.getSize());
 		Writer.println();
-		Writer.println("Type 'help' for commands. Type 'look' to examine your surroundings.");
+		Writer.println("You stand in the Mirror Chamber, facing an ornate mirror.");
 		Writer.println();
-		Writer.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-		Writer.println();
-		
-		printLocationInformation();
 	}
 	/**
 	 * Print out the player's current status, including their current location and inventory.
 	 */
 	private void status() {
-		Writer.println("========== STATUS ==========");
-    	Writer.println("Name: " + player.getPlayerName());
-		Writer.println("Sanity: " + player.getSanity() + "/" + 100);
-		Writer.println("Size: " + player.getSize());
-		Writer.println("Score: " + player.getScore());
-		Writer.println("Turns: " + player.getTurns());
-		Writer.println("============================");
+		Writer.println();
+		Writer.println("╔════════════════════════════════════════════════════════╗");
+		Writer.println("║                      YOUR STATUS                       ║");
+		Writer.println("╚════════════════════════════════════════════════════════╝");
+		Writer.println("  Name:     " + player.getPlayerName());
+		Writer.println("  Sanity:   " + player.getSanity() + "/100");
+		Writer.println("  Size:     " + player.getSize());
+		Writer.println("  Score:    " + player.getScore());
+		Writer.println("  Turns:    " + player.getTurns());
+		Writer.println("╔════════════════════════════════════════════════════════╗");
+		Writer.println();
     	Writer.println();
     	printLocationInformation();
 	}
@@ -380,7 +496,6 @@ public class Game {
 		}
 		return wantToQuit;
 	}
-
 	/**
 	 * Displays the player's current score.
 	 */
@@ -568,13 +683,13 @@ public class Game {
 		
 		// Try to find container in inventory first
 		Item invItem = player.getInventoryItem(containerName);
-		if (invItem instanceof Container) {
-			container = (Container) invItem;
+		if (invItem instanceof Container container1) {
+			container = container1;
 		} else {
 			// Try to find container in room
 			Item roomItem = player.getCurrentRoom().getItem(containerName);
-			if (roomItem instanceof Container) {
-				container = (Container) roomItem;
+			if (roomItem instanceof Container container1) {
+				container = container1;
 			}
 		}
 		
@@ -629,13 +744,13 @@ public class Game {
 		
 		// Try to find container in inventory first
 		Item invItem = player.getInventoryItem(containerName);
-		if (invItem instanceof Container) {
-			container = (Container) invItem;
+		if (invItem instanceof Container container1) {
+			container = container1;
 		} else {
 			// Try to find container in room
 			Item roomItem = player.getCurrentRoom().getItem(containerName);
-			if (roomItem instanceof Container) {
-				container = (Container) roomItem;
+			if (roomItem instanceof Container container1) {
+				container = container1;
 			}
 		}
 		
@@ -786,5 +901,39 @@ public class Game {
 			}
 		}
 		Writer.println();
+	}
+
+	/**
+	 * Helper method to pad a string to a certain length
+	 */
+	private String padString(String str, int length) {
+		if (str.length() >= length) {
+			return str.substring(0, length);
+		}
+		int padding = length - str.length();
+		int leftPad = padding / 2;
+		int rightPad = padding - leftPad;
+		return " ".repeat(leftPad) + str + " ".repeat(rightPad);
+	}
+
+	/**
+	 * Helper method to get available exits as a string
+	 */
+	private String getAvailableExits() {
+		Room current = player.getCurrentRoom();
+		StringBuilder exits = new StringBuilder();
+		boolean first = true;
+		
+		// Check in compass order: north, east, south, west
+		String[] directions = {"north", "south", "east", "west", "up", "down"};
+		for (String dir : directions) {
+			if (current.getExit(dir) != null) {
+				if (!first) exits.append(", ");
+				exits.append(dir);
+				first = false;
+			}
+		}
+		
+		return exits.toString();
 	}
 }

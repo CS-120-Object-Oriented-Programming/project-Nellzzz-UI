@@ -65,69 +65,70 @@ public class World {
 	 */
 	private void createRooms() {
 		// FLOOR 1 - Main Wonderland Rooms
-		Room mirrorChamber = new Room("Mirror Chamber", "You stand before an ornate mirror. Your reflection stares back, but something feels... wrong.");
+		Room mirrorChamber = new Room("mirror chamber", "You stand before an ornate mirror. Your reflection stares back, but something feels... wrong.");
 		addRoom(mirrorChamber);
+		
 
-		Room purpleRoom = new Room("Purple Room", "You are in a purple kitchen that smells of burnt pepper. A treasure chest sits on the table, and a Cheshire Cat grins from atop it!");
+		Room purpleRoom = new Room("purple room", "You are in a purple kitchen that smells of burnt pepper. A treasure chest sits on the table, and a Cheshire Cat grins from atop it!");
 		addRoom(purpleRoom);
 
-		Room blueRoom = new Room("Blue Room", "You are in a room filled with ticking clocks. Clockwork animals move around you.");
+		Room blueRoom = new Room("blue room", "You are in a room filled with ticking clocks. Clockwork animals move around you.");
 		addRoom(blueRoom);
 
-		Room yellowRoom = new Room("Yellow Room", "You are in a room with a floor of quicksand. It pulls at your feet with each step.");
+		Room yellowRoom = new Room("yellow room", "You are in a room with a floor of quicksand. It pulls at your feet with each step.");
 		addRoom(yellowRoom);
 
-		Room orangeRoom = new Room("Orange Room", "You are in a toy room overcrowded with dolls that whisper when you are not looking.");
+		Room orangeRoom = new Room("orange room", "You are in a toy room overcrowded with dolls that whisper when you are not looking.");
 		addRoom(orangeRoom);
 
-		Room redRoom = new Room("Red Room", "You are in the Card Throne, where playing card guards stand at attention.");
+		Room redRoom = new Room("red room", "You are in the Card Throne, where playing card guards stand at attention.");
 		addRoom(redRoom);
 
-		Room greenRoom = new Room("Green Room", "You are in an impossible garden where flowers speak riddles.");
+		Room greenRoom = new Room("green room", "You are in an impossible garden where flowers speak riddles.");
 		addRoom(greenRoom);
 
-		Room blackRoom = new Room("Black Room", "You are in a shadowy hall where darkness seems to have weight.");
+		Room blackRoom = new Room("black room", "You are in a shadowy hall where darkness seems to have weight.");
 		addRoom(blackRoom);
 
-		Room elevatorRoom = new Room("Elevator Room", "You are in a grand elevator chamber with mirrors on every wall.");
+		Room elevatorRoom = new Room("elevator room", "You are in a grand elevator chamber with mirrors on every wall.");
 		addRoom(elevatorRoom);
 
 		// FLOOR 2 - Mirrored Rooms
-		Room floor2Mirror = new Room("Floor 2 Mirror", "You stand before another mirror, but this one shows a different reflection.");
+		Room floor2Mirror = new Room("floor 2 mirror", "You stand before another mirror, but this one shows a different reflection.");
 		addRoom(floor2Mirror);
 
-		Room floor2Purple = new Room("Floor 2 Purple", "You are in a mirrored kitchen. Everything is reversed.");
+		Room floor2Purple = new Room("floor 2 purple", "You are in a mirrored kitchen. Everything is reversed.");
 		addRoom(floor2Purple);
 
-		Room floor2Blue = new Room("Floor 2 Blue", "You are in a mirrored clock room. The ticking sounds backwards.");
+		Room floor2Blue = new Room("floor 2 blue", "You are in a mirrored clock room. The ticking sounds backwards.");
 		addRoom(floor2Blue);
 
-		Room floor2Yellow = new Room("Floor 2 Yellow", "You are in a mirrored quicksand room. The sand flows upward.");
+		Room floor2Yellow = new Room("floor 2 yellow", "You are in a mirrored quicksand room. The sand flows upward.");
 		addRoom(floor2Yellow);
 
-		Room floor2Orange = new Room("Floor 2 Orange", "You are in a mirrored toy room with silent dolls.");
+		Room floor2Orange = new Room("floor 2 orange", "You are in a mirrored toy room with silent dolls.");
 		addRoom(floor2Orange);
 
-		Room floor2Red = new Room("Floor 2 Red", "You are in a mirrored Card Throne.");
+		Room floor2Red = new Room("floor 2 red", "You are in a mirrored Card Throne.");
 		addRoom(floor2Red);
 
-		Room floor2Green = new Room("Floor 2 Green", "You are in a mirrored garden with opposite flowers.");
+		Room floor2Green = new Room("floor 2 green", "You are in a mirrored garden with opposite flowers.");
 		addRoom(floor2Green);
 
-		Room floor2Black = new Room("Floor 2 Black", "You are in a mirrored shadow hall where light has weight.");
+		Room floor2Black = new Room("floor 2 black", "You are in a mirrored shadow hall where light has weight.");
 		addRoom(floor2Black);
 
-		Room throneRoom = new Room("Throne Room", "You stand before the Queen of Hearts. This is the end.");
+		Room throneRoom = new Room("throne room", "You stand before the Queen of Hearts. This is the end.");
 		addRoom(throneRoom);
 
 		// CRAWLSPACES - Small rooms accessible when small
-		Room hiddenCellar = new Room("Hidden Cellar", "You are in a small hidden cellar beneath the kitchen. It smells of earth and secrets.");
+		Room hiddenCellar = new Room("hidden cellar", "You are in a small hidden cellar beneath the kitchen. It smells of earth and secrets.");
 		addRoom(hiddenCellar);
 
-		Room hiddenAttic = new Room("Hidden Attic", "You are in a cramped attic above the clock room. Dust particles dance in strange patterns.");
+		Room hiddenAttic = new Room("hidden attic", "You are in a cramped attic above the clock room. Dust particles dance in strange patterns.");
 		addRoom(hiddenAttic);
 
-		Room hiddenChamber = new Room("Hidden Chamber", "You are in a mysterious chamber hidden behind the toys. Strange machinery hums.");
+		Room hiddenChamber = new Room("hidden chamber", "You are in a mysterious chamber hidden behind the toys. Strange machinery hums.");
 		addRoom(hiddenChamber);
 
 		// Connect FLOOR 1 rooms

@@ -56,7 +56,7 @@ public class Reader {
             }
             
             if (tokenizer.hasNext()) {
-                restOfLine = new ArrayList<String>();
+                restOfLine = new ArrayList<>();
                 while (tokenizer.hasNext()) {
                     restOfLine.add(tokenizer.next());
                 
@@ -74,12 +74,10 @@ public class Reader {
         return command;
      }
 
-    /**
-     * Get a simple string response from the user.
-     * @return The user's response converted to lowercase.
-     */
     public static String getResponse() {
-        Writer.print(">> ");
-        return reader.nextLine().toLowerCase();
+       String response = reader.nextLine();
+       Writer.printInput(response);
+       return response;
     }
-}
+    }
+
